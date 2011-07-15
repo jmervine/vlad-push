@@ -23,8 +23,8 @@ namespace :vlad do
   end
 
   def push_cmd(host)
-    cmd =  "#{push_scp} #{ssh_flags.join(" ")}"
-    cmd << "/tmp/#{application}-#{release_name}.tgz"
+    cmd =  "#{push_scp} #{ssh_flags.join(" ")} "
+    cmd << "/tmp/#{application}-#{release_name}.tgz "
     cmd << "#{host}:/tmp/#{application}-#{release_name}.tgz" 
     cmd
   end
