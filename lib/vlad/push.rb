@@ -13,7 +13,7 @@ namespace :vlad do
   set :push_scp,        "scp"
 
   def export_cmd
-    if :scm == :git
+    if scm.to_s == "git"
       scm_src = ".git"
     else
       raise "#{scm.to_s} not yet supported."
