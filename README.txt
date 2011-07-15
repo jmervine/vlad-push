@@ -34,6 +34,7 @@ repository::	        Vlad config param, should be set to a directory location
                         <tt>:repository => "/tmp/repo"</tt>
 domain::	        See Vlad :domain variable
 scp_cmd::          	Defaults to <tt>scp</tt>
+ssh_flags::             See Vlad :ssh_flags variable
 
 == LICENSE:
 
