@@ -1,0 +1,10 @@
+syntax: glob
+.DS_Store
+*~
+\#*\#
+.\#*
+
+syntax: regexp
+^pkg/
+^doc/
+^.yardoc$
