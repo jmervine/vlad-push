@@ -70,4 +70,3 @@ namespace :vlad do
 
 end
 
-end
