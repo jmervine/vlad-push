@@ -3,6 +3,7 @@ require "vlad/push"
 
 class TestVladPush < Test::Unit::TestCase
   def test_sanity
-    flunk "write tests or I will kneecap you"
+    assert system("rake -T vlad:push")
+    assert system("rake -T vlad:push | grep push")
   end
 end
