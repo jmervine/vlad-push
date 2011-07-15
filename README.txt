@@ -25,7 +25,7 @@ Adds support to Vlad for pushing files to a remote server without SCM.
 
 == INSTALL:
 
-    $ sudo gem install vlad-push
+    $ sudo gem install vlad-push << will work soon, not uploaded yet
 
 == VARIABLES:
 
