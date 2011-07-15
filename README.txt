@@ -6,6 +6,7 @@
 
 Adds support to Vlad for pushing files to a remote server without SCM.
 
+
 == FEATURES/PROBLEMS:
 
 * Requires that remote server has git installed
@@ -24,7 +25,6 @@ Adds support to Vlad for pushing files to a remote server without SCM.
 == INSTALL:
 
     $ sudo gem install vlad-push 
-      ^-- gem coming soon to rubyfordge, pending project approval
 
 == VARIABLES:
 
