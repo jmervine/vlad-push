@@ -6,6 +6,8 @@
 
 Adds support to Vlad for pushing files to a remote server without SCM.
 
+!! UNTESTED as of 20110714 -- I'll remove this as soon as it is. !!
+
 == FEATURES/PROBLEMS:
 
 * Requires that remote server has git installed
