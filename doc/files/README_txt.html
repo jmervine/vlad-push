@@ -56,7 +56,7 @@
     </tr>
     <tr class="top-aligned-row">
       <td><strong>Last Update:</strong></td>
-      <td>Wed Jul 20 23:12:52 -0700 2011</td>
+      <td>Thu Jul 21 09:30:33 -0700 2011</td>
     </tr>
     </table>
   </div>
@@ -79,7 +79,8 @@ href="http://github.com/jmervine/vlad-push">github.com/jmervine/vlad-push</a>
 <h2>DESCRIPTION:</h2>
 <p>
 Adds support to <a href="../classes/Vlad.html">Vlad</a> for pushing files
-to a remote server without SCM.
+to a remote server without SCM. (Really, pre 1.x didn&#8216;t work as
+expected.)
 </p>
 <h2>FEATURES/PROBLEMS:</h2>
 <ul>
@@ -92,16 +93,27 @@ to a remote server without SCM.
   $ rake &lt;env&gt; vlad:push
   $ rake &lt;env&gt; vlad:update
 
+         ^-- if using environment tasks in deploy.rb
+
   or
 
   $ rake &lt;env&gt; vlad:deploy
+
+         ^-- if using environment tasks in deploy.rb
+</pre>
+<h3>Rakefile sample</h3>
+<pre>
+  require 'vlad'
+  Vlad.load(:scm =&gt; :push)
+</pre>
+<h3>deploy.rb sample</h3>
+<pre>
+  set :deploy_to, &quot;/web/root&quot;
+  set :repository, &quot;/push/root&quot;
 </pre>
 <h2>REQUIREMENTS:</h2>
 <ul>
 <li><a href="http://rubyhitsquad.com/Vlad_the_Deployer.html">Vlad</a>
-
-</li>
-<li><a href="https://github.com/jbarnette/vlad-git.git">Vlad-git</a>
 
 </li>
 </ul>
@@ -126,6 +138,21 @@ directory location to use as repo on remote server(s) <tt>:repository =&gt;
 
 </td></tr>
 </table>
+<h2>ACKKNOWLEDGEMENTS</h2>
+<ul>
+<li>[<a href="http://rubyhitsquad.com">rubyhitsquad.com</a>/] for creating <a
+href="../classes/Vlad.html">Vlad</a>.
+
+</li>
+<li>jbarnette for <a href="https://github.com/jbarnette/vlad-git">vlad-git</a>
+which was used as a template for 1.0.0.
+
+</li>
+<li><a href="https://github.com/retr0h">retr0h</a> who turned me on to <a
+href="../classes/Vlad.html">Vlad</a>.
+
+</li>
+</ul>
 <h2>LICENSE:</h2>
 <p>
 (The MIT License)
