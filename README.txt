@@ -4,7 +4,7 @@
 
 == DESCRIPTION:
 
-Adds support to Vlad for pushing files to a remote server without SCM.
+Adds support to Vlad for pushing files to a remote server without SCM. (Really, pre 1.x didn't work as expected.)
 
 
 == FEATURES/PROBLEMS:
