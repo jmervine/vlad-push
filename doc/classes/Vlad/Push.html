@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Module: Vlad::Push</title>
+  <title>Class: Vlad::Push</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
@@ -49,7 +49,7 @@
     <div id="classHeader">
         <table class="header-table">
         <tr class="top-aligned-row">
-          <td><strong>Module</strong></td>
+          <td><strong>Class</strong></td>
           <td class="class-name-in-header">Vlad::Push</td>
         </tr>
         <tr class="top-aligned-row">
@@ -62,6 +62,12 @@
             </td>
         </tr>
 
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Object
+            </td>
+        </tr>
         </table>
     </div>
   <!-- banner header -->
@@ -76,6 +82,19 @@
 
    </div>
 
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000001">checkout</a>&nbsp;&nbsp;
+      <a href="#M000007">compress</a>&nbsp;&nbsp;
+      <a href="#M000002">export</a>&nbsp;&nbsp;
+      <a href="#M000004">push</a>&nbsp;&nbsp;
+      <a href="#M000006">push_cleanup</a>&nbsp;&nbsp;
+      <a href="#M000005">push_extract</a>&nbsp;&nbsp;
+      <a href="#M000003">revision</a>&nbsp;&nbsp;
+      </div>
+    </div>
 
   </div>
 
@@ -85,6 +104,19 @@
     <div id="section">
 
 
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">VERSION</td>
+          <td>=</td>
+          <td class="context-item-value">&quot;1.0.0&quot;</td>
+        </tr>
+        </table>
+      </div>
+    </div>
 
 
 
@@ -92,6 +124,203 @@
 
 
     <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000001" class="method-detail">
+        <a name="M000001"></a>
+
+        <div class="method-heading">
+          <a href="#M000001" class="method-signature">
+          <span class="method-name">checkout</span><span class="method-args">(revision, destination)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <pre>
+ telling vlad not to bother running checkout
+  but this doesn't seem to work, I'll probably
+  moving it to the Rakefile
+</pre>
+<p>
+set :skip_scm, true
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000001-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000001-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/vlad/push.rb, line 21</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkout</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>)
+    <span class="ruby-value str">&quot;echo 'skipping checkout per vlad-push'&quot;</span>
+  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000007" class="method-detail">
+        <a name="M000007"></a>
+
+        <div class="method-heading">
+          <a href="#M000007" class="method-signature">
+          <span class="method-name">compress</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000007-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000007-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/vlad/push.rb, line 64</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">compress</span>
+    [ <span class="ruby-node">&quot;tar -czf /tmp/#{application}-#{release_name}.tgz&quot;</span>,
+      <span class="ruby-value str">'--exclude &quot;\.git*&quot;'</span>,
+      <span class="ruby-value str">'--exclude &quot;\.svn*&quot;'</span>,
+      <span class="ruby-value str">&quot;.&quot;</span>
+    ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &quot;</span>) 
+  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
+
+        <div class="method-heading">
+          <a href="#M000002" class="method-signature">
+          <span class="method-name">export</span><span class="method-args">(source, destination)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000002-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000002-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/vlad/push.rb, line 25</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">export</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">destination</span>)
+    <span class="ruby-comment cmt"># ignoring source</span>
+    <span class="ruby-node">&quot;cp -r #{repository} #{destination}&quot;</span>
+    <span class="ruby-comment cmt">#[ &quot;mkdir -p #{repository}&quot;,</span>
+      <span class="ruby-comment cmt">#&quot;cd #{repository}&quot;,</span>
+      <span class="ruby-comment cmt">#&quot;tar -xzf /tmp/#{application}-#{release_name}.tgz&quot;,</span>
+      <span class="ruby-comment cmt">#&quot;cp -r #{repository} #{destination}&quot;</span>
+    <span class="ruby-comment cmt">#].join(&quot; &amp;&amp; &quot;)</span>
+  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
+
+        <div class="method-heading">
+          <a href="#M000004" class="method-signature">
+          <span class="method-name">push</span><span class="method-args">(host)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000004-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000004-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/vlad/push.rb, line 40</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">push</span>(<span class="ruby-identifier">host</span>)
+    [ <span class="ruby-node">&quot;#{push_scp} #{ssh_flags}&quot;</span>,
+      <span class="ruby-node">&quot;/tmp/#{application}-#{release_name}.tgz&quot;</span>,
+      <span class="ruby-node">&quot;#{host}:/tmp/#{application}-#{release_name}.tgz&quot;</span>
+    ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &quot;</span>)
+  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000006" class="method-detail">
+        <a name="M000006"></a>
+
+        <div class="method-heading">
+          <a href="#M000006" class="method-signature">
+          <span class="method-name">push_cleanup</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000006-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000006-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/vlad/push.rb, line 55</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">push_cleanup</span>
+    [ <span class="ruby-node">&quot;rm -vrf /tmp/#{application}-*.tgz&quot;</span>,
+      [ <span class="ruby-node">&quot;if [ -e #{repository} ]&quot;</span>,
+        <span class="ruby-node">&quot;then rm -rf #{repository}&quot;</span>,
+        <span class="ruby-value str">&quot;fi&quot;</span>
+      ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;; &quot;</span>)
+    ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &amp;&amp; &quot;</span>)
+  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
+
+        <div class="method-heading">
+          <a href="#M000005" class="method-signature">
+          <span class="method-name">push_extract</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000005-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000005-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/vlad/push.rb, line 47</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">push_extract</span>
+    [ <span class="ruby-node">&quot;if [ -e #{repository} ]; then rm -rf #{repository}; fi&quot;</span>,
+      <span class="ruby-node">&quot;mkdir -p #{repository}&quot;</span>,
+      <span class="ruby-node">&quot;cd #{repository}&quot;</span>,
+      <span class="ruby-node">&quot;tar -xzf /tmp/#{application}-#{release_name}.tgz&quot;</span>
+    ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &amp;&amp; &quot;</span>)
+  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="#M000003" class="method-signature">
+          <span class="method-name">revision</span><span class="method-args">(revision)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000003-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000003-source">
+<pre>
+<span class="ruby-comment cmt"># File lib/vlad/push.rb, line 35</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">revision</span>(<span class="ruby-identifier">revision</span>)
+  <span class="ruby-comment cmt"># telling vlad to use &quot;repository&quot; as &quot;revision&quot; as we have no scm</span>
+    <span class="ruby-identifier">repository</span>
+  <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
 
 
   </div>
