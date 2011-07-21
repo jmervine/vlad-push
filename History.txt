@@ -1,3 +1,16 @@
+=== 1.0.1 / 2011-07-21
+
+* Updating README.txt to include examples for deploy.rb and Rakefile
+* Removing vlad-git as a dependancy
+* Including TODOs here:
+** TODO: update to use "scm" directory over "/tmp"
+** TODO: update to use vlad date based versioning for better code management and rollback.
+** TODO: update push_cleanup to keep previous 5 version, like vlad does -- maybe?
+** TODO: add ability to specify local storage for compressed packages.
+** TODO: include rsync as an option over ssh for faster pushes -- someday, but probably not soon.
+** TODO: include zip as an option over tar, for windows users -- someday.
+** TODO: allow users to specify tar/zip location explicitly.
+
 === 1.0.0 / 2011-07-20
 
 * The first two release were terrible, buggy and didn't do what they said the did. I have updated to this to not use any form of scm and should actually work for all *nix and Mac OS 10+ with ssh and tar.

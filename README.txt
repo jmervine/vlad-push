@@ -16,15 +16,27 @@ Adds support to Vlad for pushing files to a remote server without SCM.
   $ rake <env> vlad:push
   $ rake <env> vlad:update
 
+         ^-- if using environment tasks in deploy.rb
+
   or
 
   $ rake <env> vlad:deploy
 
+         ^-- if using environment tasks in deploy.rb
+
+=== Rakefile sample
+
+  require 'vlad'
+  Vlad.load(:scm => :push)
+
+=== deploy.rb sample
+
+  set :deploy_to, "/web/root"
+  set :repository, "/push/root"
 
 == REQUIREMENTS:
 
 * Vlad[http://rubyhitsquad.com/Vlad_the_Deployer.html]
-* Vlad-git[https://github.com/jbarnette/vlad-git.git]
 
 == INSTALL:
 
@@ -38,6 +50,13 @@ repository::	        Vlad config param, should be set to a directory location
 domain::	        See Vlad :domain variable
 scp_cmd::          	Defaults to <tt>scp</tt>
 ssh_flags::             See Vlad :ssh_flags variable
+
+== ACKKNOWLEDGEMENTS
+
+* [http://rubyhitsquad.com/] for creating Vlad.
+* jbarnette for vlad-git[https://github.com/jbarnette/vlad-git] which was used as a template for 1.0.0.
+* retr0h[https://github.com/retr0h] who turned me on to Vlad.
+
 
 == LICENSE:
 
