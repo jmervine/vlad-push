@@ -9,12 +9,16 @@ Adds support to Vlad for pushing files to a remote server without SCM.
 
 == FEATURES/PROBLEMS:
 
-* Requires that remote server has git installed
 * Requires vlad-git gem
 
 == SYNOPSIS:
 
   $ rake <env> vlad:push
+  $ rake <env> vlad:update
+
+  or
+
+  $ rake <env> vlad:deploy
 
 
 == REQUIREMENTS:

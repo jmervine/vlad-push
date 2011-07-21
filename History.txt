@@ -1,3 +1,7 @@
+=== 1.0.0 / 2011-07-20
+
+* The first two release were terrible, buggy and didn't do what they said the did. I have updated to this to not use any form of scm and should actually work for all *nix and Mac OS 10+ with ssh and tar.
+
 === 0.0.2 / 2011-07-15
 
 * Adding tests.

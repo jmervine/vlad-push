@@ -1,6 +1,6 @@
 require 'vlad'
 class Vlad::Push
-  VERSION = "0.1.0"
+  VERSION = "1.0.0"
 
   set :source, Vlad::Push.new
 
@@ -9,6 +9,9 @@ class Vlad::Push
   set :scm,             :push
   set :push_scp, "scp"
   set :ssh_flags, ""
+  set :release_name, ENV['RELEASE']||release_name
+
+  #@paired = false
 
   # telling vlad not to bother running checkout
   #  but this doesn't seem to work, I'll probably
@@ -21,11 +24,12 @@ class Vlad::Push
 
   def export(source, destination)
     # ignoring source
-    [ "mkdir -p #{repository}",
-      "cd #{repository}",
-      "tar -xzf /tmp/#{application}-#{release_name}.tgz",
-      "cp -r #{repository} #{destination}"
-    ].join(" && ")
+    "cp -r #{repository} #{destination}"
+    #[ "mkdir -p #{repository}",
+      #"cd #{repository}",
+      #"tar -xzf /tmp/#{application}-#{release_name}.tgz",
+      #"cp -r #{repository} #{destination}"
+    #].join(" && ")
   end
 
   def revision(revision)
@@ -33,17 +37,18 @@ class Vlad::Push
     repository
   end
 
-  def push(host, destination)
+  def push(host)
     [ "#{push_scp} #{ssh_flags}",
       "/tmp/#{application}-#{release_name}.tgz",
-      #"#{host}:#{destination}/#{application}-#{release_name}.tgz"
       "#{host}:/tmp/#{application}-#{release_name}.tgz"
     ].join(" ")
   end
 
   def push_extract
-    [ "cd #{repository}",
-      "tar -xzf #{application}-#{release_name}.tgz"
+    [ "if [ -e #{repository} ]; then rm -rf #{repository}; fi",
+      "mkdir -p #{repository}",
+      "cd #{repository}",
+      "tar -xzf /tmp/#{application}-#{release_name}.tgz"
     ].join(" && ")
   end
 
@@ -58,8 +63,8 @@ class Vlad::Push
 
   def compress
     [ "tar -czf /tmp/#{application}-#{release_name}.tgz",
-      "--exclude \"\.git*\"",
-      "--exclude \"\.svn*\"",
+      '--exclude "\.git*"',
+      '--exclude "\.svn*"',
       "."
     ].join(" ") 
   end
@@ -67,12 +72,19 @@ class Vlad::Push
   namespace :vlad do
 
     desc "Push current working directory to remote servers."
-    task :push do
+    remote_task :push do
       sh source.compress
       domain.each do |host|
-        sh source.push(host, repository)
+        sh source.push(host)
       end
-      #run source.push_extract
+      run source.push_extract
+      #if !@paired
+        #puts " "
+        #puts "To update successfully, execute the following command:"
+        #puts " "
+        #puts " $ rake <environment> vlad:update RELEASE=#{release_name}"
+        #puts " "
+      #end
     end
 
     # Updating 'vlad:cleanup' to include post-task
@@ -86,6 +98,15 @@ class Vlad::Push
       run source.push_cleanup
     end
 
+    desc "Runs push and update"
+    task :deploy do
+      #@paired = true
+      Rake::Task["vlad:push"].invoke
+      Rake::Task["vlad:update"].invoke
+    end
+
   end
-  
+
 end # class def
+
+
