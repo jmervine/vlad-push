@@ -19,7 +19,7 @@ class Vlad::Push
   #set :skip_scm, true 
 
   def checkout(revision, destination)
-    "echo 'skipping checkout per vlad-push'"
+    "echo '[vlad-push] skipping checkout, no needed without scm'"
   end
 
   def export(source, destination)
