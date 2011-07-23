@@ -11,32 +11,32 @@ class Vlad::Push
   set :ssh_flags, ""
   set :release_name, ENV['RELEASE']||release_name
 
-  #@paired = false
-
   # telling vlad not to bother running checkout
   #  but this doesn't seem to work, I'll probably
   #  moving it to the Rakefile
   #set :skip_scm, true 
-
   def checkout(revision, destination)
     "echo '[vlad-push] skipping checkout, no needed without scm'"
   end
 
+  # overwrite vlad export to simply copied what was
+  #  pushed from the 'repository' location to the 
+  #  'destination'
+  #  * 'source' is for vlad support, but ignored
   def export(source, destination)
     # ignoring source
     "cp -r #{repository} #{destination}"
-    #[ "mkdir -p #{repository}",
-      #"cd #{repository}",
-      #"tar -xzf /tmp/#{application}-#{release_name}.tgz",
-      #"cp -r #{repository} #{destination}"
-    #].join(" && ")
   end
 
+  # telling vlad to use "repository" as "revision" just
+  #  in case this method is needed
   def revision(revision)
-  # telling vlad to use "repository" as "revision" as we have no scm
     repository
   end
 
+  # push extracted and compressed files to 'host'
+  #  this should be run once for each host by
+  #  the rake task :push
   def push(host)
     [ "#{push_scp} #{ssh_flags}",
       "/tmp/#{application}-#{release_name}.tgz",
@@ -44,6 +44,7 @@ class Vlad::Push
     ].join(" ")
   end
 
+  # extract the remote compressed file on each host
   def push_extract
     [ "if [ -e #{repository} ]; then rm -rf #{repository}; fi",
       "mkdir -p #{repository}",
@@ -52,6 +53,8 @@ class Vlad::Push
     ].join(" && ")
   end
 
+  # clean up old compressed archives both locally and
+  #  remotely
   def push_cleanup
     [ "rm -vrf /tmp/#{application}-*.tgz",
       [ "if [ -e #{repository} ]",
@@ -61,6 +64,8 @@ class Vlad::Push
     ].join(" && ")
   end
 
+  # compress the files in the current working directory 
+  #  to be pushed to the remote server
   def compress
     [ "tar -czf /tmp/#{application}-#{release_name}.tgz",
       '--exclude "\.git*"',
@@ -69,6 +74,8 @@ class Vlad::Push
     ].join(" ") 
   end
 
+  # using :vlad namespace to make this part 
+  #  of vlad in rake
   namespace :vlad do
 
     desc "Push current working directory to remote servers."
@@ -78,13 +85,6 @@ class Vlad::Push
         sh source.push(host)
       end
       run source.push_extract
-      #if !@paired
-        #puts " "
-        #puts "To update successfully, execute the following command:"
-        #puts " "
-        #puts " $ rake <environment> vlad:update RELEASE=#{release_name}"
-        #puts " "
-      #end
     end
 
     # Updating 'vlad:cleanup' to include post-task
@@ -100,13 +100,12 @@ class Vlad::Push
 
     desc "Runs push and update"
     task :deploy do
-      #@paired = true
       Rake::Task["vlad:push"].invoke
       Rake::Task["vlad:update"].invoke
     end
 
   end
 
-end # class def
+end 
 
 
