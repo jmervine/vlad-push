@@ -183,13 +183,10 @@
 
 				<div class="method-description">
 					
-					<pre>
- telling vlad not to bother running checkout
-  but this doesn't seem to work, I'll probably
-  moving it to the Rakefile
-</pre>
-<p>
-set :skip_scm, true 
+					<p>
+telling vlad not to bother running checkout but this doesn&#8217;t seem to
+work, I&#8217;ll probably moving it to the <a
+href="../Rakefile.html">Rakefile</a>
 </p>
 					
 
@@ -197,10 +194,10 @@ set :skip_scm, true
 					<div class="method-source-code"
 						id="checkout-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 18</span>
-18:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkout</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>)
-19:     <span class="ruby-value str">&quot;echo '[vlad-push] skipping checkout, no needed without scm'&quot;</span>
-20:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 17</span>
+17:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkout</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>)
+18:     <span class="ruby-value str">&quot;echo '[vlad-push] skipping checkout, no needed without scm'&quot;</span>
+19:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -225,24 +222,23 @@ set :skip_scm, true
 				<div class="method-description">
 					
 					<p>
-compress the files in the current working directory 
+compress the files in the current working directory  to be pushed to the
+remote server
 </p>
-<pre>
- to be pushed to the remote server</pre>
 					
 
 					
 					<div class="method-source-code"
 						id="compress-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 69</span>
-69:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">compress</span>
-70:     [ <span class="ruby-node">&quot;tar -czf /tmp/#{application}-#{release_name}.tgz&quot;</span>,
-71:       <span class="ruby-value str">'--exclude &quot;\.git*&quot;'</span>,
-72:       <span class="ruby-value str">'--exclude &quot;\.svn*&quot;'</span>,
-73:       <span class="ruby-value str">&quot;.&quot;</span>
-74:     ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &quot;</span>) 
-75:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 68</span>
+68:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">compress</span>
+69:     [ <span class="ruby-node">&quot;tar -czf /tmp/#{application}-#{release_name}.tgz&quot;</span>,
+70:       <span class="ruby-value str">'--exclude &quot;\.git*&quot;'</span>,
+71:       <span class="ruby-value str">'--exclude &quot;\.svn*&quot;'</span>,
+72:       <span class="ruby-value str">&quot;.&quot;</span>
+73:     ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &quot;</span>) 
+74:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -267,23 +263,26 @@ compress the files in the current working directory
 				<div class="method-description">
 					
 					<p>
-overwrite vlad export to simply copied what was
+overwrite vlad export to simply copied what was pushed from the
+&#8216;repository&#8217; location to the  &#8216;destination&#8217;
 </p>
-<pre>
- pushed from the 'repository' location to the 
- 'destination'
- * 'source' is for vlad support, but ignored</pre>
+<ul>
+<li><p>
+&#8216;source&#8217; is for vlad support, but ignored
+</p>
+</li>
+</ul>
 					
 
 					
 					<div class="method-source-code"
 						id="export-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 26</span>
-26:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">export</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">destination</span>)
-27:     <span class="ruby-comment cmt"># ignoring source</span>
-28:     <span class="ruby-node">&quot;cp -r #{repository} #{destination}&quot;</span>
-29:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 25</span>
+25:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">export</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">destination</span>)
+26:     <span class="ruby-comment cmt"># ignoring source</span>
+27:     <span class="ruby-node">&quot;cp -r #{repository} #{destination}&quot;</span>
+28:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -308,24 +307,22 @@ overwrite vlad export to simply copied what was
 				<div class="method-description">
 					
 					<p>
-push extracted and compressed files to &#8216;host&#8217;
+push extracted and compressed files to &#8216;host&#8217; this should be
+run once for each host by the rake task :push
 </p>
-<pre>
- this should be run once for each host by
- the rake task :push</pre>
 					
 
 					
 					<div class="method-source-code"
 						id="push-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 40</span>
-40:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">push</span>(<span class="ruby-identifier">host</span>)
-41:     [ <span class="ruby-node">&quot;#{push_scp} #{ssh_flags}&quot;</span>,
-42:       <span class="ruby-node">&quot;/tmp/#{application}-#{release_name}.tgz&quot;</span>,
-43:       <span class="ruby-node">&quot;#{host}:/tmp/#{application}-#{release_name}.tgz&quot;</span>
-44:     ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &quot;</span>)
-45:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 39</span>
+39:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">push</span>(<span class="ruby-identifier">host</span>)
+40:     [ <span class="ruby-node">&quot;#{push_scp} #{ssh_flags}&quot;</span>,
+41:       <span class="ruby-node">&quot;/tmp/#{application}-#{release_name}.tgz&quot;</span>,
+42:       <span class="ruby-node">&quot;#{host}:/tmp/#{application}-#{release_name}.tgz&quot;</span>
+43:     ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &quot;</span>)
+44:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -350,25 +347,23 @@ push extracted and compressed files to &#8216;host&#8217;
 				<div class="method-description">
 					
 					<p>
-clean up old compressed archives both locally and
+clean up old compressed archives both locally and remotely
 </p>
-<pre>
- remotely</pre>
 					
 
 					
 					<div class="method-source-code"
 						id="push-cleanup-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 58</span>
-58:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">push_cleanup</span>
-59:     [ <span class="ruby-node">&quot;rm -vrf /tmp/#{application}-*.tgz&quot;</span>,
-60:       [ <span class="ruby-node">&quot;if [ -e #{repository} ]&quot;</span>,
-61:         <span class="ruby-node">&quot;then rm -rf #{repository}&quot;</span>,
-62:         <span class="ruby-value str">&quot;fi&quot;</span>
-63:       ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;; &quot;</span>)
-64:     ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &amp;&amp; &quot;</span>)
-65:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 57</span>
+57:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">push_cleanup</span>
+58:     [ <span class="ruby-node">&quot;rm -vrf /tmp/#{application}-*.tgz&quot;</span>,
+59:       [ <span class="ruby-node">&quot;if [ -e #{repository} ]&quot;</span>,
+60:         <span class="ruby-node">&quot;then rm -rf #{repository}&quot;</span>,
+61:         <span class="ruby-value str">&quot;fi&quot;</span>
+62:       ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;; &quot;</span>)
+63:     ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &amp;&amp; &quot;</span>)
+64:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -401,14 +396,14 @@ extract the remote compressed file on each host
 					<div class="method-source-code"
 						id="push-extract-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 48</span>
-48:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">push_extract</span>
-49:     [ <span class="ruby-node">&quot;if [ -e #{repository} ]; then rm -rf #{repository}; fi&quot;</span>,
-50:       <span class="ruby-node">&quot;mkdir -p #{repository}&quot;</span>,
-51:       <span class="ruby-node">&quot;cd #{repository}&quot;</span>,
-52:       <span class="ruby-node">&quot;tar -xzf /tmp/#{application}-#{release_name}.tgz&quot;</span>
-53:     ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &amp;&amp; &quot;</span>)
-54:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 47</span>
+47:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">push_extract</span>
+48:     [ <span class="ruby-node">&quot;if [ -e #{repository} ]; then rm -rf #{repository}; fi&quot;</span>,
+49:       <span class="ruby-node">&quot;mkdir -p #{repository}&quot;</span>,
+50:       <span class="ruby-node">&quot;cd #{repository}&quot;</span>,
+51:       <span class="ruby-node">&quot;tar -xzf /tmp/#{application}-#{release_name}.tgz&quot;</span>
+52:     ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &amp;&amp; &quot;</span>)
+53:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>
@@ -434,19 +429,18 @@ extract the remote compressed file on each host
 					
 					<p>
 telling vlad to use &#8220;repository&#8221; as &#8220;revision&#8221; just
+in case this method is needed
 </p>
-<pre>
- in case this method is needed</pre>
 					
 
 					
 					<div class="method-source-code"
 						id="revision-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 33</span>
-33:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">revision</span>(<span class="ruby-identifier">revision</span>)
-34:     <span class="ruby-identifier">repository</span>
-35:   <span class="ruby-keyword kw">end</span></pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 32</span>
+32:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">revision</span>(<span class="ruby-identifier">revision</span>)
+33:     <span class="ruby-identifier">repository</span>
+34:   <span class="ruby-keyword kw">end</span></pre>
 					</div>
 					
 				</div>

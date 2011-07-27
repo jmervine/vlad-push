@@ -12,31 +12,30 @@ class Vlad::Push
   set :release_name, ENV['RELEASE']||release_name
 
   # telling vlad not to bother running checkout
-  #  but this doesn't seem to work, I'll probably
-  #  moving it to the Rakefile
-  #set :skip_scm, true 
+  # but this doesn't seem to work, I'll probably
+  # moving it to the Rakefile
   def checkout(revision, destination)
     "echo '[vlad-push] skipping checkout, no needed without scm'"
   end
 
   # overwrite vlad export to simply copied what was
-  #  pushed from the 'repository' location to the 
-  #  'destination'
-  #  * 'source' is for vlad support, but ignored
+  # pushed from the 'repository' location to the 
+  # 'destination'
+  # * 'source' is for vlad support, but ignored
   def export(source, destination)
     # ignoring source
     "cp -r #{repository} #{destination}"
   end
 
   # telling vlad to use "repository" as "revision" just
-  #  in case this method is needed
+  # in case this method is needed
   def revision(revision)
     repository
   end
 
   # push extracted and compressed files to 'host'
-  #  this should be run once for each host by
-  #  the rake task :push
+  # this should be run once for each host by
+  # the rake task :push
   def push(host)
     [ "#{push_scp} #{ssh_flags}",
       "/tmp/#{application}-#{release_name}.tgz",
@@ -54,7 +53,7 @@ class Vlad::Push
   end
 
   # clean up old compressed archives both locally and
-  #  remotely
+  # remotely
   def push_cleanup
     [ "rm -vrf /tmp/#{application}-*.tgz",
       [ "if [ -e #{repository} ]",
@@ -65,7 +64,7 @@ class Vlad::Push
   end
 
   # compress the files in the current working directory 
-  #  to be pushed to the remote server
+  # to be pushed to the remote server
   def compress
     [ "tar -czf /tmp/#{application}-#{release_name}.tgz",
       '--exclude "\.git*"',
@@ -75,7 +74,7 @@ class Vlad::Push
   end
 
   # using :vlad namespace to make this part 
-  #  of vlad in rake
+  # of vlad in rake
   namespace :vlad do
 
     desc "Push current working directory to remote servers."
