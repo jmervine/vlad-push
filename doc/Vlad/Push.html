@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+	<title>Class: Vlad::Push</title>
+
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
+
+</head>
+<body class="class">
+
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
+
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/vlad/push_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/vlad/push.rb">lib/vlad/push.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
+
+			
+		</div>
+
+		<div id="class-metadata">
+
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
+
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-i-checkout">#checkout</a></li>
+					
+					<li><a href="#method-i-compress">#compress</a></li>
+					
+					<li><a href="#method-i-export">#export</a></li>
+					
+					<li><a href="#method-i-push">#push</a></li>
+					
+					<li><a href="#method-i-push_cleanup">#push_cleanup</a></li>
+					
+					<li><a href="#method-i-push_extract">#push_extract</a></li>
+					
+					<li><a href="#method-i-revision">#revision</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../History_txt.html">History.txt</a></li>
+				
+					<li class="file"><a href="../Manifest_txt.html">Manifest.txt</a></li>
+				
+					<li class="file"><a href="../README_txt.html">README.txt</a></li>
+				
+					<li class="file"><a href="../Rakefile.html">Rakefile</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../Vlad.html">Vlad</a></li>
+				
+					<li><a href="../Vlad/Push.html">Vlad::Push</a></li>
+				
+					<li><a href="../TestVladPush.html">TestVladPush</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">Vlad::Push</h1>
+
+		<div id="description">
+			
+		</div>
+
+		<!-- Constants -->
+		
+		<div id="constants-list" class="section">
+			<h3 class="section-header">Constants</h3>
+			<dl>
+			
+				<dt><a name="VERSION">VERSION</a></dt>
+				
+				<dd class="description"></dd>
+				
+			
+			</dl>
+		</div>
+		
+
+		<!-- Attributes -->
+		
+
+		<!-- Methods -->
+		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
+
+		
+			<div id="checkout-method" class="method-detail ">
+				<a name="method-i-checkout"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">checkout</span><span
+						class="method-args">(revision, destination)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<pre>
+ telling vlad not to bother running checkout
+  but this doesn't seem to work, I'll probably
+  moving it to the Rakefile
+</pre>
+<p>
+set :skip_scm, true 
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="checkout-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 18</span>
+18:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkout</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>)
+19:     <span class="ruby-value str">&quot;echo '[vlad-push] skipping checkout, no needed without scm'&quot;</span>
+20:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="compress-method" class="method-detail ">
+				<a name="method-i-compress"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">compress</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+compress the files in the current working directory 
+</p>
+<pre>
+ to be pushed to the remote server</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="compress-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 69</span>
+69:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">compress</span>
+70:     [ <span class="ruby-node">&quot;tar -czf /tmp/#{application}-#{release_name}.tgz&quot;</span>,
+71:       <span class="ruby-value str">'--exclude &quot;\.git*&quot;'</span>,
+72:       <span class="ruby-value str">'--exclude &quot;\.svn*&quot;'</span>,
+73:       <span class="ruby-value str">&quot;.&quot;</span>
+74:     ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &quot;</span>) 
+75:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="export-method" class="method-detail ">
+				<a name="method-i-export"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">export</span><span
+						class="method-args">(source, destination)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+overwrite vlad export to simply copied what was
+</p>
+<pre>
+ pushed from the 'repository' location to the 
+ 'destination'
+ * 'source' is for vlad support, but ignored</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="export-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 26</span>
+26:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">export</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">destination</span>)
+27:     <span class="ruby-comment cmt"># ignoring source</span>
+28:     <span class="ruby-node">&quot;cp -r #{repository} #{destination}&quot;</span>
+29:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="push-method" class="method-detail ">
+				<a name="method-i-push"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">push</span><span
+						class="method-args">(host)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+push extracted and compressed files to &#8216;host&#8217;
+</p>
+<pre>
+ this should be run once for each host by
+ the rake task :push</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="push-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 40</span>
+40:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">push</span>(<span class="ruby-identifier">host</span>)
+41:     [ <span class="ruby-node">&quot;#{push_scp} #{ssh_flags}&quot;</span>,
+42:       <span class="ruby-node">&quot;/tmp/#{application}-#{release_name}.tgz&quot;</span>,
+43:       <span class="ruby-node">&quot;#{host}:/tmp/#{application}-#{release_name}.tgz&quot;</span>
+44:     ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &quot;</span>)
+45:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="push-cleanup-method" class="method-detail ">
+				<a name="method-i-push_cleanup"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">push_cleanup</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+clean up old compressed archives both locally and
+</p>
+<pre>
+ remotely</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="push-cleanup-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 58</span>
+58:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">push_cleanup</span>
+59:     [ <span class="ruby-node">&quot;rm -vrf /tmp/#{application}-*.tgz&quot;</span>,
+60:       [ <span class="ruby-node">&quot;if [ -e #{repository} ]&quot;</span>,
+61:         <span class="ruby-node">&quot;then rm -rf #{repository}&quot;</span>,
+62:         <span class="ruby-value str">&quot;fi&quot;</span>
+63:       ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;; &quot;</span>)
+64:     ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &amp;&amp; &quot;</span>)
+65:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="push-extract-method" class="method-detail ">
+				<a name="method-i-push_extract"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">push_extract</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+extract the remote compressed file on each host
+</p>
+					
+
+					
+					<div class="method-source-code"
+						id="push-extract-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 48</span>
+48:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">push_extract</span>
+49:     [ <span class="ruby-node">&quot;if [ -e #{repository} ]; then rm -rf #{repository}; fi&quot;</span>,
+50:       <span class="ruby-node">&quot;mkdir -p #{repository}&quot;</span>,
+51:       <span class="ruby-node">&quot;cd #{repository}&quot;</span>,
+52:       <span class="ruby-node">&quot;tar -xzf /tmp/#{application}-#{release_name}.tgz&quot;</span>
+53:     ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &amp;&amp; &quot;</span>)
+54:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+			<div id="revision-method" class="method-detail ">
+				<a name="method-i-revision"></a>
+
+				<div class="method-heading">
+				
+					<span class="method-name">revision</span><span
+						class="method-args">(revision)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
+telling vlad to use &#8220;repository&#8221; as &#8220;revision&#8221; just
+</p>
+<pre>
+ in case this method is needed</pre>
+					
+
+					
+					<div class="method-source-code"
+						id="revision-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 33</span>
+33:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">revision</span>(<span class="ruby-identifier">revision</span>)
+34:     <span class="ruby-identifier">repository</span>
+35:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
+
+
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+
+</body>
+</html>
+
