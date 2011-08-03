@@ -1,6 +1,7 @@
 require 'vlad'
+
 class Vlad::Push
-  VERSION = "1.0.1"
+  VERSION = "1.0.2"
 
   set :source, Vlad::Push.new
 
@@ -15,7 +16,7 @@ class Vlad::Push
   # but this doesn't seem to work, I'll probably
   # moving it to the Rakefile
   def checkout(revision, destination)
-    "echo '[vlad-push] skipping checkout, no needed without scm'"
+    "echo '[vlad-push] skipping checkout, not needed without scm'"
   end
 
   # overwrite vlad export to simply copied what was
@@ -37,7 +38,7 @@ class Vlad::Push
   # this should be run once for each host by
   # the rake task :push
   def push(host)
-    [ "#{push_scp} #{ssh_flags}",
+    [ "#{push_scp} #{ssh_flags.join(' ')}",
       "/tmp/#{application}-#{release_name}.tgz",
       "#{host}:/tmp/#{application}-#{release_name}.tgz"
     ].join(" ")
@@ -80,7 +81,8 @@ class Vlad::Push
     desc "Push current working directory to remote servers."
     remote_task :push do
       sh source.compress
-      domain.each do |host|
+      # TODO: find a better way to ensure array for each
+      [domain].flatten.each do |host|
         sh source.push(host)
       end
       run source.push_extract

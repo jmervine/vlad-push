@@ -1,7 +1,12 @@
-Wed, 27 Jul 2011 13:55:20 -0700
-./History.txt	Fri, 22 Jul 2011 17:12:15 -0700
-./lib/vlad/push.rb	Wed, 27 Jul 2011 13:55:09 -0700
+Wed, 03 Aug 2011 15:12:53 -0700
+./History.txt	Wed, 03 Aug 2011 15:10:52 -0700
+./lib/vlad/push.rb	Wed, 03 Aug 2011 15:08:07 -0700
 ./Manifest.txt	Fri, 22 Jul 2011 17:12:15 -0700
-./Rakefile	Fri, 22 Jul 2011 17:11:25 -0700
-./README.txt	Fri, 22 Jul 2011 17:12:15 -0700
-./test/test_vlad_push.rb	Fri, 22 Jul 2011 17:12:15 -0700
+./pkg/vlad-push-1.0.2/lib/vlad/push.rb	Wed, 03 Aug 2011 15:08:07 -0700
+./pkg/vlad-push-1.0.2/Manifest.txt	Fri, 22 Jul 2011 17:12:15 -0700
+./pkg/vlad-push-1.0.2/Rakefile	Wed, 03 Aug 2011 15:07:08 -0700
+./pkg/vlad-push-1.0.2/README.txt	Thu, 28 Jul 2011 10:43:35 -0700
+./pkg/vlad-push-1.0.2/test/test_vlad_push.rb	Wed, 03 Aug 2011 15:07:41 -0700
+./Rakefile	Wed, 03 Aug 2011 15:07:08 -0700
+./README.txt	Thu, 28 Jul 2011 10:43:35 -0700
+./test/test_vlad_push.rb	Wed, 03 Aug 2011 15:07:41 -0700

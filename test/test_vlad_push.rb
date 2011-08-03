@@ -7,19 +7,14 @@ class TestVladPush < Test::Unit::TestCase
     @source = Vlad::Push.new
     set :repository, "/tmp/repo"
     set :push_scp, "scp"
-    set :ssh_flags, [ "-i", "~/.ssh/id_rsa_example" ].join(" ")
+    set :ssh_flags, [ "-i", "~/.ssh/id_rsa_example" ]
     set :application, "testapp"
     set :release_name, "12345678910"
   end
 
-  def test_rake
-    assert system("rake -T vlad:push")
-    assert system("rake -T vlad:push | grep push")
-  end
-
   def test_checkout
     cmd = @source.checkout 'foo', 'bar'
-    assert_equal "echo 'skipping checkout per vlad-push'", cmd
+    assert_equal "echo '[vlad-push] skipping checkout, not needed without scm'", cmd
   end
 
   def test_export
