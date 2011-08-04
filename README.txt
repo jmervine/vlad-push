@@ -13,14 +13,14 @@ Adds support to Vlad for pushing files to a remote server without SCM. (Really, 
 
 == SYNOPSIS:
 
-  $ rake <env> vlad:push
-  $ rake <env> vlad:update
+  $ rake [env] vlad:push
+  $ rake [env] vlad:update
 
          ^-- if using environment tasks in deploy.rb
 
   or
 
-  $ rake <env> vlad:deploy
+  $ rake [env] vlad:deploy
 
          ^-- if using environment tasks in deploy.rb
 
