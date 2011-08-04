@@ -1,42 +1,69 @@
 require 'vlad'
 
+# @author Joshua P. Mervine <jmervine@mervine.net> 
+#
+# Please see {file:lib/vlad/push.rb Vlad::Push Source} for Rake task documentation.
 class Vlad::Push
   VERSION = "1.0.2"
 
+  # @attribute[rw] 
+  # init Vlad::Push
   set :source, Vlad::Push.new
 
-  # default to be overwritten by deploy.rb as needed
+  # @attribute[rw] 
+  # set default repository
   set :repository,      "/tmp/repo"
+  
+  # @attribute[rw] 
+  # set default scm
   set :scm,             :push
+
+  # @attribute[rw] 
+  # set default scp command
   set :push_scp, "scp"
+  
+  # @attribute[rw] 
+  # set default ssh/scp flags as none
   set :ssh_flags, ""
+  
+  # @attribute[rw] 
+  # allow for overwriting release_name via command line
   set :release_name, ENV['RELEASE']||release_name
 
-  # telling vlad not to bother running checkout
-  # but this doesn't seem to work, I'll probably
-  # moving it to the Rakefile
+  # Overwriting Vlad.checkout, to do nothing.
+  #
+  # @return [String] echo bash command
+  #
+  # @param revision [String] ignored
+  # @param destination [String] ignored
   def checkout(revision, destination)
     "echo '[vlad-push] skipping checkout, not needed without scm'"
   end
 
-  # overwrite vlad export to simply copied what was
+  # Overwrite Vlad.export to simply copied what was
   # pushed from the 'repository' location to the 
   # 'destination'
-  # * 'source' is for vlad support, but ignored
+  #
+  # @param source [String] ignored
+  # @param destination [String] target export folder
   def export(source, destination)
-    # ignoring source
     "cp -r #{repository} #{destination}"
   end
 
-  # telling vlad to use "repository" as "revision" just
-  # in case this method is needed
+  # Overwriting Vlad.revision
+  #
+  # @param revision [String] ignored
+  # @return [String] returning 'repository'
   def revision(revision)
     repository
   end
 
-  # push extracted and compressed files to 'host'
+  # Push extracted and compressed files to 'host'
   # this should be run once for each host by
   # the rake task :push
+  #
+  # @param host [String] working host to push to
+  # @return [String] bash command do push
   def push(host)
     [ "#{push_scp} #{ssh_flags.join(' ')}",
       "/tmp/#{application}-#{release_name}.tgz",
@@ -44,7 +71,9 @@ class Vlad::Push
     ].join(" ")
   end
 
-  # extract the remote compressed file on each host
+  # Extract the remote compressed file on each host
+  #
+  # @return [String] bash command to extract compressed archive on remote server
   def push_extract
     [ "if [ -e #{repository} ]; then rm -rf #{repository}; fi",
       "mkdir -p #{repository}",
@@ -53,8 +82,9 @@ class Vlad::Push
     ].join(" && ")
   end
 
-  # clean up old compressed archives both locally and
-  # remotely
+  # Clean up old compressed archives both locally and remotely
+  #
+  # @return [String] bash command to remove compressed archives
   def push_cleanup
     [ "rm -vrf /tmp/#{application}-*.tgz",
       [ "if [ -e #{repository} ]",
@@ -64,8 +94,10 @@ class Vlad::Push
     ].join(" && ")
   end
 
-  # compress the files in the current working directory 
+  # Compress the files in the current working directory 
   # to be pushed to the remote server
+  #
+  # @return [String] bash command to compress current directory
   def compress
     [ "tar -czf /tmp/#{application}-#{release_name}.tgz",
       '--exclude "\.git*"',
@@ -74,10 +106,14 @@ class Vlad::Push
     ].join(" ") 
   end
 
-  # using :vlad namespace to make this part 
+  # Using :vlad namespace to make this part 
   # of vlad in rake
   namespace :vlad do
 
+    # Run the following on specified environment:
+    # * Vlad::Push.compress
+    # * Vlad::Push.push
+    # * Vlad::Push.push_extract
     desc "Push current working directory to remote servers."
     remote_task :push do
       sh source.compress
@@ -93,12 +129,16 @@ class Vlad::Push
       Rake::Task['vlad:push_cleanup'].invoke
     end
 
+    # Run the following on specified environment:
+    # * Vlad::Push.push_cleanup on local machine
+    # * Vlad::Push.push_cleanup on remote machines
     desc "Clean up archive files created by push. This will also be run by vlad:cleanup."
     remote_task :push_cleanup do
       sh source.push_cleanup
       run source.push_cleanup
     end
 
+    # Adding task to do both 'vlad:push' and 'vlad:update' rake tasks
     desc "Runs push and update"
     task :deploy do
       Rake::Task["vlad:push"].invoke
