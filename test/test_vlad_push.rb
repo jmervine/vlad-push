@@ -6,7 +6,6 @@ class TestVladPush < Test::Unit::TestCase
     super
     @source = Vlad::Push.new
     set :repository, "/tmp/repo"
-    set :push_scp, "scp"
     set :ssh_flags, [ "-i", "~/.ssh/id_rsa_example" ]
     set :application, "testapp"
     set :release_name, "12345678910"
@@ -25,11 +24,6 @@ class TestVladPush < Test::Unit::TestCase
   def test_revision
     out = @source.revision 'foo'
     assert_equal '/tmp/repo', out
-  end
-
-  def test_push
-    cmd = @source.push 'example.com' 
-    assert_equal 'scp -i ~/.ssh/id_rsa_example /tmp/testapp-12345678910.tgz example.com:/tmp/testapp-12345678910.tgz', cmd
   end
 
   def test_push_extract

@@ -1,34 +1,34 @@
 require 'vlad'
 
-# @author Joshua P. Mervine <jmervine@mervine.net> 
+# @author Joshua P. Mervine <jmervine@mervine.net>
 #
 # Please see {file:lib/vlad/push.rb Vlad::Push Source} for Rake task documentation.
 class Vlad::Push
   VERSION = "1.0.2"
 
-  # @attribute[rw] 
+  # @attribute[rw]
   # init Vlad::Push
   set :source, Vlad::Push.new
 
-  # @attribute[rw] 
+  # @attribute[rw]
   # set default repository
-  set :repository,      "/tmp/repo"
-  
-  # @attribute[rw] 
-  # set default scm
-  set :scm,             :push
+  set :repository, "/tmp/repo"
 
-  # @attribute[rw] 
-  # set default scp command
-  set :push_scp, "scp"
-  
-  # @attribute[rw] 
-  # set default ssh/scp flags as none
-  set :ssh_flags, ""
-  
-  # @attribute[rw] 
+  # @attribute[rw]
+  # set default scm
+  set :scm, :push
+
+  # @attribute[rw]
   # allow for overwriting release_name via command line
   set :release_name, ENV['RELEASE']||release_name
+
+  # @attribute[rw]
+  # set default directory to build tarballs in
+  set :extract_dir, "/tmp"
+
+  # @attribute[rw]
+  # set default name of tarball generates, you should override this in your rakefile
+  set :extract_file, "vlad-push-extract-#{release_name}.tgz"
 
   # Overwriting Vlad.checkout, to do nothing.
   #
@@ -41,7 +41,7 @@ class Vlad::Push
   end
 
   # Overwrite Vlad.export to simply copied what was
-  # pushed from the 'repository' location to the 
+  # pushed from the 'repository' location to the
   # 'destination'
   #
   # @param source [String] ignored
@@ -58,19 +58,6 @@ class Vlad::Push
     repository
   end
 
-  # Push extracted and compressed files to 'host'
-  # this should be run once for each host by
-  # the rake task :push
-  #
-  # @param host [String] working host to push to
-  # @return [String] bash command do push
-  def push(host)
-    [ "#{push_scp} #{ssh_flags.join(' ')}",
-      "/tmp/#{application}-#{release_name}.tgz",
-      "#{host}:/tmp/#{application}-#{release_name}.tgz"
-    ].join(" ")
-  end
-
   # Extract the remote compressed file on each host
   #
   # @return [String] bash command to extract compressed archive on remote server
@@ -78,7 +65,7 @@ class Vlad::Push
     [ "if [ -e #{repository} ]; then rm -rf #{repository}; fi",
       "mkdir -p #{repository}",
       "cd #{repository}",
-      "tar -xzf /tmp/#{application}-#{release_name}.tgz"
+      "tar -xzf #{extract_dir}/#{extract_file}"
     ].join(" && ")
   end
 
@@ -94,33 +81,34 @@ class Vlad::Push
     ].join(" && ")
   end
 
-  # Compress the files in the current working directory 
+  # Compress the files in the current working directory
   # to be pushed to the remote server
   #
   # @return [String] bash command to compress current directory
   def compress
-    [ "tar -czf /tmp/#{application}-#{release_name}.tgz",
+    [ "tar -czf #{extract_dir}/#{extract_file}",
       '--exclude "\.git*"',
       '--exclude "\.svn*"',
       "."
-    ].join(" ") 
+    ].join(" ")
   end
 
-  # Using :vlad namespace to make this part 
+  # Using :vlad namespace to make this part
   # of vlad in rake
   namespace :vlad do
+
+    desc "Built the extracted tarball to be pushed from the CWD"
+    task :create_extract do
+      sh source.compress
+    end
 
     # Run the following on specified environment:
     # * Vlad::Push.compress
     # * Vlad::Push.push
     # * Vlad::Push.push_extract
     desc "Push current working directory to remote servers."
-    remote_task :push do
-      sh source.compress
-      # TODO: find a better way to ensure array for each
-      [domain].flatten.each do |host|
-        sh source.push(host)
-      end
+    remote_task :push => :create_extract do
+      rsync "#{extract_dir}/#{extract_file}", "#{target_host}:#{extract_dir}/#{extract_file}"
       run source.push_extract
     end
 
@@ -147,6 +135,6 @@ class Vlad::Push
 
   end
 
-end 
+end
 
 
