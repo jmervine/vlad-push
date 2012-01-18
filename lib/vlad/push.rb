@@ -4,7 +4,7 @@ require 'vlad'
 #
 # Please see {file:lib/vlad/push.rb Vlad::Push Source} for Rake task documentation.
 class Vlad::Push
-  VERSION = "1.1.0"
+  VERSION = "1.1.1"
 
   # @attribute[rw]
   # init Vlad::Push
