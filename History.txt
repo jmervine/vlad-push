@@ -1,3 +1,9 @@
+=== 1.1.0 / 2012-01-18 / nhruby@gmail.com
+* bump to 1.1.0 (older rubygems from rhel5 don't like beta lettering, so real numbers it is)
+* use vars for extract file and dirname, intrduces new suggested setting :extract_file to deploy.rb
+* switch to using rsync from remote_task instead of scp
+* switch handling of push and compress steps around to resolve issues pushing to multiple hosts
+
 === 1.0.2 / 2011-08-03
 * Joining ssh options
 * Handling domain as a string, as opposed to only an array
