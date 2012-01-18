@@ -33,6 +33,7 @@ Adds support to Vlad for pushing files to a remote server without SCM. (Really, 
 
   set :deploy_to, "/web/root"
   set :repository, "/push/root"
+  set :extract_file, "#{application}-#{release_name}.tgz"
 
 == REQUIREMENTS:
 
@@ -40,16 +41,18 @@ Adds support to Vlad for pushing files to a remote server without SCM. (Really, 
 
 == INSTALL:
 
-    $ sudo gem install vlad-push 
+    $ sudo gem install vlad-push
 
 == VARIABLES:
 
 repository::	        Vlad config param, should be set to a directory location
 			to use as repo on remote server(s)
                         <tt>:repository => "/tmp/repo"</tt>
-domain::	        See Vlad :domain variable
-scp_cmd::          	Defaults to <tt>scp</tt>
-ssh_flags::             See Vlad :ssh_flags variable
+extract_file::          Name of tarball that vlad-push will generate, we suggest changing this
+extract_dir::           Path to a directory that we will create the extract in, defaults to "/tmp"
+domain::	        See remote_task :domain variable
+ssh_flags::             See remote_task :ssh_flags variable
+rsync_flags::           See remote_task :rsync_flags variable
 
 == ACKKNOWLEDGEMENTS
 
