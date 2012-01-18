@@ -5,10 +5,12 @@ class TestVladPush < Test::Unit::TestCase
   def setup
     super
     @source = Vlad::Push.new
+    set :application, "testapp"
     set :repository, "/tmp/repo"
     set :ssh_flags, [ "-i", "~/.ssh/id_rsa_example" ]
     set :application, "testapp"
     set :release_name, "12345678910"
+    set :extract_file, "#{application}-#{release_name}.tgz"
   end
 
   def test_checkout
