@@ -1,6 +1,6 @@
 require 'vlad'
 
-# @author Joshua P. Mervine <jmervine@mervine.net>
+# @author Joshua P. Mervine <joshua@mervine.net>
 #
 # Please see {file:lib/vlad/push.rb Vlad::Push Source} for Rake task documentation.
 class Vlad::Push
