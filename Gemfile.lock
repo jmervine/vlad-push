@@ -12,8 +12,6 @@ GEM
     vlad (2.2.4)
       rake (~> 0.8)
       rake-remote_task (~> 2.0)
-    vlad-push (1.1.1)
-      vlad (~> 2.0)
 
 PLATFORMS
   ruby
@@ -23,4 +21,3 @@ DEPENDENCIES
   rake
   test-unit
   vlad
-  vlad-push
