@@ -1,880 +1,447 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>
-  Class: Vlad::Push
-  
-    &mdash; Documentation by YARD 0.7.2
-  
-</title>
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+	<title>Class: Vlad::Push</title>
 
-  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
 
-<script type="text/javascript" charset="utf-8">
-  relpath = '..';
-  if (relpath != '') relpath += '/';
-</script>
+	<script src="../js/jquery.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/thickbox-compressed.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/quicksearch.js" type="text/javascript"
+		charset="utf-8"></script>
+	<script src="../js/darkfish.js" type="text/javascript"
+		charset="utf-8"></script>
 
-  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+</head>
+<body class="class">
 
-  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+	<div id="metadata">
+		<div id="home-metadata">
+			<div id="home-section" class="section">
+        <h3 class="section-header">
+          <a href="../index.html">Home</a>
+          <a href="../index.html#classes">Classes</a>
+          <a href="../index.html#methods">Methods</a>
+        </h3>
+			</div>
+		</div>
 
+		<div id="file-metadata">
+			<div id="file-list-section" class="section">
+				<h3 class="section-header">In Files</h3>
+				<div class="section-body">
+					<ul>
+					
+						<li><a href="../lib/vlad/push_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+							class="thickbox" title="lib/vlad/push.rb">lib/vlad/push.rb</a></li>
+					
+					</ul>
+				</div>
+			</div>
 
-  </head>
-  <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
-    <div id="header">
-      <div id="menu">
-  
-    <a href="../_index.html">Index (P)</a> &raquo; 
-    <span class='title'>Vlad</span>
-     &raquo; 
-    <span class="title">Push</span>
-  
-  
-  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
-</div>
+			
+		</div>
 
-      <div id="search">
-  
-    <a id="class_list_link" href="#">Class List</a>
-  
-    <a id="method_list_link" href="#">Method List</a>
-  
-    <a id="file_list_link" href="#">File List</a>
-  
-</div>
-      <div class="clear"></div>
-    </div>
-    
-    <iframe id="search_frame"></iframe>
-    
-    <div id="content"><h1>Class: Vlad::Push
-  
-  
-  
-</h1>
+		<div id="class-metadata">
 
-<dl class="box">
-  
-    <dt class="r1">Inherits:</dt>
-    <dd class="r1">
-      <span class="inheritName">Object</span>
-      
-        <ul class="fullTree">
-          <li>Object</li>
-          
-            <li class="next">Vlad::Push</li>
-          
-        </ul>
-        <a href="#" class="inheritanceTree">show all</a>
-      
-      </dd>
-    
-  
-  
-    
-  
-    
-  
-  
-  
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/vlad/push.rb</dd>
-  
-</dl>
-<div class="clear"></div>
+			<!-- Parent Class -->
+			
+			<div id="parent-class-section" class="section">
+				<h3 class="section-header">Parent</h3>
+				
+				<p class="link">Object</p>
+				
+			</div>
+			
 
-<h2>Overview</h2><div class="docstring">
-  <div class="discussion">
-    <p>
-Please see <a href="../file.push.html" title="Vlad::Push Source">Vlad::Push Source</a> for Rake task
-documentation.
+			<!-- Namespace Contents -->
+			
+
+			<!-- Method Quickref -->
+			
+			<div id="method-list-section" class="section">
+				<h3 class="section-header">Methods</h3>
+				<ul class="link-list">
+					
+					<li><a href="#method-i-checkout">#checkout</a></li>
+					
+					<li><a href="#method-i-compress">#compress</a></li>
+					
+					<li><a href="#method-i-export">#export</a></li>
+					
+					<li><a href="#method-i-push_cleanup">#push_cleanup</a></li>
+					
+					<li><a href="#method-i-push_extract">#push_extract</a></li>
+					
+					<li><a href="#method-i-revision">#revision</a></li>
+					
+				</ul>
+			</div>
+			
+
+			<!-- Included Modules -->
+			
+		</div>
+
+		<div id="project-metadata">
+			
+			
+			<div id="fileindex-section" class="section project-section">
+				<h3 class="section-header">Files</h3>
+				<ul>
+				
+					<li class="file"><a href="../Manifest_txt.html">Manifest.txt</a></li>
+				
+					<li class="file"><a href="../README_txt.html">README.txt</a></li>
+				
+				</ul>
+			</div>
+			
+
+			<div id="classindex-section" class="section project-section">
+				<h3 class="section-header">Class Index
+					<span class="search-toggle"><img src="../images/find.png"
+						height="16" width="16" alt="[+]"
+						title="show/hide quicksearch" /></span></h3>
+				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+				<fieldset>
+					<legend>Quicksearch</legend>
+					<input type="text" name="quicksearch" value=""
+						class="quicksearch-field" />
+				</fieldset>
+				</form>
+
+				<ul class="link-list">
+				
+					<li><a href="../Vlad.html">Vlad</a></li>
+				
+					<li><a href="../Vlad/Push.html">Vlad::Push</a></li>
+				
+				</ul>
+				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+	<div id="documentation">
+		<h1 class="class">Vlad::Push</h1>
+
+		<div id="description">
+			<p>
+@author Joshua P. Mervine <jmervine@mervine.net>
+</p>
+<p>
+Please see {file:<a href="../lib/vlad/push_rb.html">lib/vlad/push.rb</a> <a
+href="Push.html">Vlad::Push</a> Source} for Rake task documentation.
 </p>
 
+		</div>
 
-  </div>
-</div>
-<div class="tags">
-  <h3>Author:</h3>
-<ul class="author">
-  
-    <li>
-      
-      
-      
-      
-        
-        <div class='inline'><p>
-Joshua P. Mervine <jmervine@mervine.net>
-</p>
-</div>
-      
-    </li>
-  
-</ul>
+		<!-- Constants -->
+		
+		<div id="constants-list" class="section">
+			<h3 class="section-header">Constants</h3>
+			<dl>
+			
+				<dt><a name="VERSION">VERSION</a></dt>
+				
+				<dd class="description"></dd>
+				
+			
+			</dl>
+		</div>
+		
 
-</div>
-  <h2>Constant Summary</h2>
-  
-    <dl class="constants">
-      
-        <dt id="VERSION-constant" class="">VERSION =
-          
-        </dt>
-        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>1.0.2</span><span class='tstring_end'>&quot;</span></span></pre></dd>
-      
-    </dl>
-  
+		<!-- Attributes -->
+		
 
+		<!-- Methods -->
+		
+		<div id="public-instance-method-details" class="method-section section">
+			<h3 class="section-header">Public Instance Methods</h3>
 
+		
+			<div id="checkout-method" class="method-detail ">
+				<a name="method-i-checkout"></a>
 
+				<div class="method-heading">
+				
+					<span class="method-name">checkout</span><span
+						class="method-args">(revision, destination)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
 
-
-  
-    <h2>
-      Instance Method Summary
-      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
-    </h2>
-
-    <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#checkout-instance_method" title="#checkout (instance method)">- (String) <strong>checkout</strong>(revision, destination) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
+				<div class="method-description">
+					
+					<p>
 Overwriting Vlad.checkout, to do nothing.
 </p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#compress-instance_method" title="#compress (instance method)">- (String) <strong>compress</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Compress the files in the current working directory  to be pushed to the
-remote server.
+<p>
+@return [String] echo bash command
 </p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#export-instance_method" title="#export (instance method)">- (Object) <strong>export</strong>(source, destination) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Overwrite Vlad.export to simply copied what was pushed from the
-&#8216;repository&#8217; location to the  &#8216;destination&#8217;.
+<p>
+@param revision [String] ignored @param destination [String] ignored
 </p>
-</div></span>
-  
-</li>
+					
 
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#push-instance_method" title="#push (instance method)">- (String) <strong>push</strong>(host) </a>
-    
+					
+					<div class="method-source-code"
+						id="checkout-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 39</span>
+39:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">checkout</span>(<span class="ruby-identifier">revision</span>, <span class="ruby-identifier">destination</span>)
+40:     <span class="ruby-value str">&quot;echo '[vlad-push] skipping checkout, not needed without scm'&quot;</span>
+41:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
 
-    
-  </span>
-  
-  
-  
-  
-  
-  
+				
 
-  
-    <span class="summary_desc"><div class='inline'><p>
-Push extracted and compressed files to &#8216;host&#8217; this should be
-run once for each host by the rake task :push.
-</p>
-</div></span>
-  
-</li>
+				
+			</div>
 
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#push_cleanup-instance_method" title="#push_cleanup (instance method)">- (String) <strong>push_cleanup</strong> </a>
-    
+		
+			<div id="compress-method" class="method-detail ">
+				<a name="method-i-compress"></a>
 
-    
-  </span>
-  
-  
-  
-  
-  
-  
+				<div class="method-heading">
+				
+					<span class="method-name">compress</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
 
-  
-    <span class="summary_desc"><div class='inline'><p>
-Clean up old compressed archives both locally and remotely.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#push_extract-instance_method" title="#push_extract (instance method)">- (String) <strong>push_extract</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Extract the remote compressed file on each host.
-</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#revision-instance_method" title="#revision (instance method)">- (String) <strong>revision</strong>(revision) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'><p>
-Overwriting Vlad.revision.
-</p>
-</div></span>
-  
-</li>
-
-      
-    </ul>
-  
-
-
-
-  <div id="instance_method_details" class="method_details_list">
-    <h2>Instance Method Details</h2>
-    
-    
-      <div class="method_details first">
-  <p class="signature first" id="checkout-instance_method">
-  
-    - (<tt>String</tt>) <strong>checkout</strong>(revision, destination) 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-Overwriting Vlad.checkout, to do nothing.
-</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <h3>Parameters:</h3>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>revision</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-ignored
-</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>destination</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-ignored
-</p>
-</div>
-      
-    </li>
-  
-</ul>
-<h3>Returns:</h3>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-echo bash command
-</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-39
-40
-41</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/vlad/push.rb', line 39</span>
-
-<span class='kw'>def</span> <span class='id checkout'>checkout</span><span class='lparen'>(</span><span class='id revision'>revision</span><span class='comma'>,</span> <span class='id destination'>destination</span><span class='rparen'>)</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>echo '[vlad-push] skipping checkout, not needed without scm'</span><span class='tstring_end'>&quot;</span></span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="compress-instance_method">
-  
-    - (<tt>String</tt>) <strong>compress</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-Compress the files in the current working directory  to be pushed to the
+				<div class="method-description">
+					
+					<p>
+Compress the files in the current working directory to be pushed to the
 remote server
 </p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <h3>Returns:</h3>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-bash command to compress current directory
+<p>
+@return [String] bash command to compress current directory
 </p>
-</div>
-      
-    </li>
-  
-</ul>
+					
 
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
+					
+					<div class="method-source-code"
+						id="compress-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 88</span>
+88:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">compress</span>
+89:     [ <span class="ruby-node">&quot;tar -czf #{extract_dir}/#{extract_file}&quot;</span>,
+90:       <span class="ruby-value str">'--exclude &quot;\.git*&quot;'</span>,
+91:       <span class="ruby-value str">'--exclude &quot;\.svn*&quot;'</span>,
+92:       <span class="ruby-value str">&quot;.&quot;</span>
+93:     ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &quot;</span>)
+94:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
 
+				
 
-101
-102
-103
-104
-105
-106
-107</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/vlad/push.rb', line 101</span>
+				
+			</div>
 
-<span class='kw'>def</span> <span class='id compress'>compress</span>
-  <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tar -czf /tmp/</span><span class='embexpr_beg'>#{</span><span class='id application'>application</span><span class='rbrace'>}</span><span class='tstring_content'>-</span><span class='embexpr_beg'>#{</span><span class='id release_name'>release_name</span><span class='rbrace'>}</span><span class='tstring_content'>.tgz</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--exclude &quot;\.git*&quot;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>--exclude &quot;\.svn*&quot;</span><span class='tstring_end'>'</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span>
-  <span class='rbracket'>]</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> 
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="export-instance_method">
-  
-    - (<tt>Object</tt>) <strong>export</strong>(source, destination) 
-  
+		
+			<div id="export-method" class="method-detail ">
+				<a name="method-i-export"></a>
 
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
+				<div class="method-heading">
+				
+					<span class="method-name">export</span><span
+						class="method-args">(source, destination)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
 Overwrite Vlad.export to simply copied what was pushed from the
-&#8216;repository&#8217; location to the  &#8216;destination&#8217;
+&#8216;repository&#8217; location to the &#8216;destination&#8217;
 </p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <h3>Parameters:</h3>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>source</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-ignored
+<p>
+@param source [String] ignored @param destination [String] target export
+folder
 </p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>destination</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-target export folder
-</p>
-</div>
-      
-    </li>
-  
-</ul>
+					
 
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
+					
+					<div class="method-source-code"
+						id="export-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 49</span>
+49:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">export</span>(<span class="ruby-identifier">source</span>, <span class="ruby-identifier">destination</span>)
+50:     <span class="ruby-node">&quot;cp -r #{repository} #{destination}&quot;</span>
+51:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
 
+				
 
-49
-50
-51</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/vlad/push.rb', line 49</span>
+				
+			</div>
 
-<span class='kw'>def</span> <span class='id export'>export</span><span class='lparen'>(</span><span class='id source'>source</span><span class='comma'>,</span> <span class='id destination'>destination</span><span class='rparen'>)</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cp -r </span><span class='embexpr_beg'>#{</span><span class='id repository'>repository</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id destination'>destination</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="push-instance_method">
-  
-    - (<tt>String</tt>) <strong>push</strong>(host) 
-  
+		
+			<div id="push-cleanup-method" class="method-detail ">
+				<a name="method-i-push_cleanup"></a>
 
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
-Push extracted and compressed files to &#8216;host&#8217; this should be
-run once for each host by the rake task :push
-</p>
+				<div class="method-heading">
+				
+					<span class="method-name">push_cleanup</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
 
-
-  </div>
-</div>
-<div class="tags">
-  <h3>Parameters:</h3>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>host</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-working host to push to
-</p>
-</div>
-      
-    </li>
-  
-</ul>
-<h3>Returns:</h3>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-bash command do push
-</p>
-</div>
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-67
-68
-69
-70
-71
-72</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/vlad/push.rb', line 67</span>
-
-<span class='kw'>def</span> <span class='id push'>push</span><span class='lparen'>(</span><span class='id host'>host</span><span class='rparen'>)</span>
-  <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id push_scp'>push_scp</span><span class='rbrace'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id ssh_flags'>ssh_flags</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'> </span><span class='tstring_end'>'</span></span><span class='rparen'>)</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/tmp/</span><span class='embexpr_beg'>#{</span><span class='id application'>application</span><span class='rbrace'>}</span><span class='tstring_content'>-</span><span class='embexpr_beg'>#{</span><span class='id release_name'>release_name</span><span class='rbrace'>}</span><span class='tstring_content'>.tgz</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id host'>host</span><span class='rbrace'>}</span><span class='tstring_content'>:/tmp/</span><span class='embexpr_beg'>#{</span><span class='id application'>application</span><span class='rbrace'>}</span><span class='tstring_content'>-</span><span class='embexpr_beg'>#{</span><span class='id release_name'>release_name</span><span class='rbrace'>}</span><span class='tstring_content'>.tgz</span><span class='tstring_end'>&quot;</span></span>
-  <span class='rbracket'>]</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="push_cleanup-instance_method">
-  
-    - (<tt>String</tt>) <strong>push_cleanup</strong> 
-  
-
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
+				<div class="method-description">
+					
+					<p>
 Clean up old compressed archives both locally and remotely
 </p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <h3>Returns:</h3>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-bash command to remove compressed archives
+<p>
+@return [String] bash command to remove compressed archives
 </p>
-</div>
-      
-    </li>
-  
-</ul>
+					
 
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
+					
+					<div class="method-source-code"
+						id="push-cleanup-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 75</span>
+75:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">push_cleanup</span>
+76:     [ <span class="ruby-node">&quot;rm -vrf /tmp/#{application}-*.tgz&quot;</span>,
+77:       [ <span class="ruby-node">&quot;if [ -e #{repository} ]&quot;</span>,
+78:         <span class="ruby-node">&quot;then rm -rf #{repository}&quot;</span>,
+79:         <span class="ruby-value str">&quot;fi&quot;</span>
+80:       ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot;; &quot;</span>)
+81:     ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &amp;&amp; &quot;</span>)
+82:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
 
+				
 
-88
-89
-90
-91
-92
-93
-94
-95</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/vlad/push.rb', line 88</span>
+				
+			</div>
 
-<span class='kw'>def</span> <span class='id push_cleanup'>push_cleanup</span>
-  <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rm -vrf /tmp/</span><span class='embexpr_beg'>#{</span><span class='id application'>application</span><span class='rbrace'>}</span><span class='tstring_content'>-*.tgz</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>if [ -e </span><span class='embexpr_beg'>#{</span><span class='id repository'>repository</span><span class='rbrace'>}</span><span class='tstring_content'> ]</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>then rm -rf </span><span class='embexpr_beg'>#{</span><span class='id repository'>repository</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>fi</span><span class='tstring_end'>&quot;</span></span>
-    <span class='rbracket'>]</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>; </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-  <span class='rbracket'>]</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> &amp;&amp; </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="push_extract-instance_method">
-  
-    - (<tt>String</tt>) <strong>push_extract</strong> 
-  
+		
+			<div id="push-extract-method" class="method-detail ">
+				<a name="method-i-push_extract"></a>
 
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
+				<div class="method-heading">
+				
+					<span class="method-name">push_extract</span><span
+						class="method-args">()</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
 Extract the remote compressed file on each host
 </p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <h3>Returns:</h3>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-bash command to extract compressed archive on remote server
+<p>
+@return [String] bash command to extract compressed archive on remote
+server
 </p>
-</div>
-      
-    </li>
-  
-</ul>
+					
 
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
+					
+					<div class="method-source-code"
+						id="push-extract-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 64</span>
+64:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">push_extract</span>
+65:     [ <span class="ruby-node">&quot;if [ -e #{repository} ]; then rm -rf #{repository}; fi&quot;</span>,
+66:       <span class="ruby-node">&quot;mkdir -p #{repository}&quot;</span>,
+67:       <span class="ruby-node">&quot;cd #{repository}&quot;</span>,
+68:       <span class="ruby-node">&quot;tar -xzf #{extract_dir}/#{extract_file}&quot;</span>
+69:     ].<span class="ruby-identifier">join</span>(<span class="ruby-value str">&quot; &amp;&amp; &quot;</span>)
+70:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
 
+				
 
-77
-78
-79
-80
-81
-82
-83</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/vlad/push.rb', line 77</span>
+				
+			</div>
 
-<span class='kw'>def</span> <span class='id push_extract'>push_extract</span>
-  <span class='lbracket'>[</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>if [ -e </span><span class='embexpr_beg'>#{</span><span class='id repository'>repository</span><span class='rbrace'>}</span><span class='tstring_content'> ]; then rm -rf </span><span class='embexpr_beg'>#{</span><span class='id repository'>repository</span><span class='rbrace'>}</span><span class='tstring_content'>; fi</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>mkdir -p </span><span class='embexpr_beg'>#{</span><span class='id repository'>repository</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>cd </span><span class='embexpr_beg'>#{</span><span class='id repository'>repository</span><span class='rbrace'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tar -xzf /tmp/</span><span class='embexpr_beg'>#{</span><span class='id application'>application</span><span class='rbrace'>}</span><span class='tstring_content'>-</span><span class='embexpr_beg'>#{</span><span class='id release_name'>release_name</span><span class='rbrace'>}</span><span class='tstring_content'>.tgz</span><span class='tstring_end'>&quot;</span></span>
-  <span class='rbracket'>]</span><span class='period'>.</span><span class='id join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> &amp;&amp; </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <p class="signature " id="revision-instance_method">
-  
-    - (<tt>String</tt>) <strong>revision</strong>(revision) 
-  
+		
+			<div id="revision-method" class="method-detail ">
+				<a name="method-i-revision"></a>
 
-  
-</p><div class="docstring">
-  <div class="discussion">
-    <p>
+				<div class="method-heading">
+				
+					<span class="method-name">revision</span><span
+						class="method-args">(revision)</span>
+					<span class="method-click-advice">click to toggle source</span>
+				
+				</div>
+
+				<div class="method-description">
+					
+					<p>
 Overwriting Vlad.revision
 </p>
-
-
-  </div>
-</div>
-<div class="tags">
-  <h3>Parameters:</h3>
-<ul class="param">
-  
-    <li>
-      
-        <span class='name'>revision</span>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-ignored
+<p>
+@param revision [String] ignored @return [String] returning
+&#8216;repository&#8217;
 </p>
-</div>
-      
-    </li>
-  
-</ul>
-<h3>Returns:</h3>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>String</tt>)</span>
-      
-      
-      
-        &mdash;
-        <div class='inline'><p>
-returning &#8216;repository&#8217;
-</p>
-</div>
-      
-    </li>
-  
-</ul>
+					
 
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
+					
+					<div class="method-source-code"
+						id="revision-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/vlad/push.rb, line 57</span>
+57:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">revision</span>(<span class="ruby-identifier">revision</span>)
+58:     <span class="ruby-identifier">repository</span>
+59:   <span class="ruby-keyword kw">end</span></pre>
+					</div>
+					
+				</div>
+
+				
+
+				
+			</div>
+
+		
+		</div>
+	
+
+	</div>
 
 
-57
-58
-59</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/vlad/push.rb', line 57</span>
+	<div id="rdoc-debugging-section-dump" class="debugging-section">
+	
+		<p>Disabled; run with --debug to generate this.</p>
+	
+	</div>
 
-<span class='kw'>def</span> <span class='id revision'>revision</span><span class='lparen'>(</span><span class='id revision'>revision</span><span class='rparen'>)</span>
-  <span class='id repository'>repository</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
 
-</div>
-    
-    <div id="footer">
-  Generated on Thu Aug  4 12:28:01 2011 by 
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.2 (ruby-1.9.2).
-</div>
-
-  </body>
+</body>
 </html>
+

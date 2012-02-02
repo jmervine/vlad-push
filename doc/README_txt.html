@@ -6,7 +6,7 @@
 <head>
 	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-	<title>File: README.txt [RDoc Documentation]</title>
+	<title>File: README.txt [vlad-push-1.1.1 Documentation]</title>
 
 	<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet" />
 
@@ -39,19 +39,9 @@
 				<h3 class="section-header">Files</h3>
 				<ul>
 				
-					<li class="file"><a href="./History_txt.html">History.txt</a></li>
-				
 					<li class="file"><a href="./Manifest_txt.html">Manifest.txt</a></li>
 				
 					<li class="file"><a href="./README_txt.html">README.txt</a></li>
-				
-					<li class="file"><a href="./Rakefile.html">Rakefile</a></li>
-				
-					<li class="file"><a href="./pkg/vlad-push-1_0_2/Manifest_txt.html">Manifest.txt</a></li>
-				
-					<li class="file"><a href="./pkg/vlad-push-1_0_2/README_txt.html">README.txt</a></li>
-				
-					<li class="file"><a href="./pkg/vlad-push-1_0_2/Rakefile.html">Rakefile</a></li>
 				
 				</ul>
 			</div>
@@ -75,8 +65,6 @@
 					<li><a href="./Vlad.html">Vlad</a></li>
 				
 					<li><a href="./Vlad/Push.html">Vlad::Push</a></li>
-				
-					<li><a href="./TestVladPush.html">TestVladPush</a></li>
 				
 				</ul>
 				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -109,18 +97,18 @@ Requires vlad-git gem
 </ul>
 <h2>SYNOPSIS:</h2>
 <pre>
-  $ rake &lt;env&gt; vlad:push
-  $ rake &lt;env&gt; vlad:update
+  $ rake [env] vlad:push
+  $ rake [env] vlad:update
 
          ^-- if using environment tasks in deploy.rb
 
   or
 
-  $ rake &lt;env&gt; vlad:deploy
+  $ rake [env] vlad:deploy
 
          ^-- if using environment tasks in deploy.rb
 </pre>
-<h3><a href="Rakefile.html">Rakefile</a> sample</h3>
+<h3>Rakefile sample</h3>
 <pre>
   require 'vlad'
   Vlad.load(:scm =&gt; :push)
@@ -129,6 +117,7 @@ Requires vlad-git gem
 <pre>
   set :deploy_to, &quot;/web/root&quot;
   set :repository, &quot;/push/root&quot;
+  set :extract_file, &quot;#{application}-#{release_name}.tgz&quot;
 </pre>
 <h2>REQUIREMENTS:</h2>
 <ul>
@@ -139,7 +128,7 @@ Requires vlad-git gem
 </ul>
 <h2>INSTALL:</h2>
 <pre>
-    $ sudo gem install vlad-push 
+    $ sudo gem install vlad-push
 </pre>
 <h2>VARIABLES:</h2>
 <table>
@@ -149,16 +138,25 @@ location to use as repo on remote server(s) <tt>:repository =&gt;
 &quot;/tmp/repo&quot;</tt>
 </p>
 </td></tr>
-<tr><td valign="top">domain</td><td><p>
-See <a href="Vlad.html">Vlad</a> :domain variable
+<tr><td valign="top">extract_file</td><td><p>
+Name of tarball that vlad-push will generate, we suggest changing this
 </p>
 </td></tr>
-<tr><td valign="top">scp_cmd</td><td><p>
-Defaults to <tt>scp</tt>
+<tr><td valign="top">extract_dir</td><td><p>
+Path to a directory that we will create the extract in, defaults to
+&#8220;/tmp&#8220;
+</p>
+</td></tr>
+<tr><td valign="top">domain</td><td><p>
+See remote_task :domain variable
 </p>
 </td></tr>
 <tr><td valign="top">ssh_flags</td><td><p>
-See <a href="Vlad.html">Vlad</a> :ssh_flags variable
+See remote_task :ssh_flags variable
+</p>
+</td></tr>
+<tr><td valign="top">rsync_flags</td><td><p>
+See remote_task :rsync_flags variable
 </p>
 </td></tr>
 </table>

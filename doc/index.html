@@ -1,74 +1,50 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>
-  File: README
-  
-    &mdash; Documentation by YARD 0.7.2
-  
-</title>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
-  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+	<title>vlad-push-1.1.1 Documentation</title>
 
-<script type="text/javascript" charset="utf-8">
-  relpath = '';
-  if (relpath != '') relpath += '/';
-</script>
+	<link type="text/css" media="screen" href="rdoc.css" rel="stylesheet" />
 
-  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/darkfish.js" type="text/javascript" charset="utf-8"></script>
 
-  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+</head>
+<body class="indexpage">
 
+	
+	<h1>vlad-push-1.1.1 Documentation</h1>
 
-  </head>
-  <body>
-    <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) document.body.className = 'frames';
-    </script>
-    
-    <div id="header">
-      <div id="menu">
-  
-    <a href="_index.html" title="Index">Index</a> &raquo; 
-    <span class="title">File: README</span>
-  
-  
-  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
-</div>
-
-      <div id="search">
-  
-    <a id="class_list_link" href="#">Class List</a>
-  
-    <a id="method_list_link" href="#">Method List</a>
-  
-    <a id="file_list_link" href="#">File List</a>
-  
-</div>
-      <div class="clear"></div>
-    </div>
-    
-    <iframe id="search_frame"></iframe>
-    
-    <div id="content"><div id='filecontents'><pre>= vlad-push
-
-* http://github.com/jmervine/vlad-push
-
-== DESCRIPTION:
-
-Adds support to Vlad for pushing files to a remote server without SCM. (Really, pre 1.x didn't work as expected.)
-
-
-== FEATURES/PROBLEMS:
-
-* Requires vlad-git gem
-
-== SYNOPSIS:
-
+	
+	<div id="main">
+		
+<ul>
+<li><p>
+<a
+href="http://github.com/jmervine/vlad-push">github.com/jmervine/vlad-push</a>
+</p>
+</li>
+</ul>
+<h2>DESCRIPTION:</h2>
+<p>
+Adds support to <a href="Vlad.html">Vlad</a> for pushing files to a remote
+server without SCM. (Really, pre 1.x didn&#8217;t work as expected.)
+</p>
+<h2>FEATURES/PROBLEMS:</h2>
+<ul>
+<li><p>
+Requires vlad-git gem
+</p>
+</li>
+</ul>
+<h2>SYNOPSIS:</h2>
+<pre>
   $ rake [env] vlad:push
   $ rake [env] vlad:update
 
@@ -79,71 +55,154 @@ Adds support to Vlad for pushing files to a remote server without SCM. (Really, 
   $ rake [env] vlad:deploy
 
          ^-- if using environment tasks in deploy.rb
-
-=== Rakefile sample
-
+</pre>
+<h3>Rakefile sample</h3>
+<pre>
   require 'vlad'
-  Vlad.load(:scm => :push)
-
-=== deploy.rb sample
-
-  set :deploy_to, "/web/root"
-  set :repository, "/push/root"
-
-== REQUIREMENTS:
-
-* Vlad[http://rubyhitsquad.com/Vlad_the_Deployer.html]
-
-== INSTALL:
-
-    $ sudo gem install vlad-push 
-
-== VARIABLES:
-
-repository::	        Vlad config param, should be set to a directory location
-			to use as repo on remote server(s)
-                        <tt>:repository => "/tmp/repo"</tt>
-domain::	        See Vlad :domain variable
-scp_cmd::          	Defaults to <tt>scp</tt>
-ssh_flags::             See Vlad :ssh_flags variable
-
-== ACKKNOWLEDGEMENTS
-
-* [http://rubyhitsquad.com/] for creating Vlad.
-* jbarnette for vlad-git[https://github.com/jbarnette/vlad-git] which was used as a template for 1.0.0.
-* retr0h[https://github.com/retr0h] who turned me on to Vlad.
-
-
-== LICENSE:
-
+  Vlad.load(:scm =&gt; :push)
+</pre>
+<h3>deploy.rb sample</h3>
+<pre>
+  set :deploy_to, &quot;/web/root&quot;
+  set :repository, &quot;/push/root&quot;
+  set :extract_file, &quot;#{application}-#{release_name}.tgz&quot;
+</pre>
+<h2>REQUIREMENTS:</h2>
+<ul>
+<li><p>
+<a href="http://rubyhitsquad.com/Vlad_the_Deployer.html">Vlad</a>
+</p>
+</li>
+</ul>
+<h2>INSTALL:</h2>
+<pre>
+    $ sudo gem install vlad-push
+</pre>
+<h2>VARIABLES:</h2>
+<table>
+<tr><td valign="top">repository</td><td><p>
+<a href="Vlad.html">Vlad</a> config param, should be set to a directory
+location to use as repo on remote server(s) <tt>:repository =&gt;
+&quot;/tmp/repo&quot;</tt>
+</p>
+</td></tr>
+<tr><td valign="top">extract_file</td><td><p>
+Name of tarball that vlad-push will generate, we suggest changing this
+</p>
+</td></tr>
+<tr><td valign="top">extract_dir</td><td><p>
+Path to a directory that we will create the extract in, defaults to
+&#8220;/tmp&#8220;
+</p>
+</td></tr>
+<tr><td valign="top">domain</td><td><p>
+See remote_task :domain variable
+</p>
+</td></tr>
+<tr><td valign="top">ssh_flags</td><td><p>
+See remote_task :ssh_flags variable
+</p>
+</td></tr>
+<tr><td valign="top">rsync_flags</td><td><p>
+See remote_task :rsync_flags variable
+</p>
+</td></tr>
+</table>
+<h2>ACKKNOWLEDGEMENTS</h2>
+<ul>
+<li><dl>
+<dt><a href="http://rubyhitsquad.com/">rubyhitsquad.com/</a></dt><dd><p>
+for creating <a href="Vlad.html">Vlad</a>.
+</p>
+</dd>
+</dl>
+</li>
+<li><p>
+jbarnette for <a href="https://github.com/jbarnette/vlad-git">vlad-git</a>
+which was used as a template for 1.0.0.
+</p>
+</li>
+<li><p>
+<a href="https://github.com/retr0h">retr0h</a> who turned me on to <a
+href="Vlad.html">Vlad</a>.
+</p>
+</li>
+</ul>
+<h2>LICENSE:</h2>
+<p>
 (The MIT License)
-
-Copyright (c) 2011 Joshua Mervine
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+</p>
+<p>
+Copyright &#169; 2011 Joshua Mervine
+</p>
+<p>
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+&#8216;Software&#8217;), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify, merge,
+publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+</p>
+<p>
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+</p>
+<p>
+THE SOFTWARE IS PROVIDED &#8216;AS IS&#8217;, WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre></div></div>
-    
-    <div id="footer">
-  Generated on Thu Aug  4 12:28:00 2011 by 
-  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.7.2 (ruby-1.9.2).
-</div>
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+</p>
 
-  </body>
+	</div>
+	
+
+	
+	
+	<h2>Files</h2>
+	<ul>
+		
+			<li class="file"><a href="Manifest_txt.html">Manifest.txt</a></li>
+		
+			<li class="file"><a href="README_txt.html">README.txt</a></li>
+		
+	</ul>
+	
+
+	<h2 id="classes">Classes/Modules</h2>
+	<ul>
+		
+		<li class="module"><a href="Vlad.html">Vlad</a></li>
+		
+		<li class="class"><a href="Vlad/Push.html">Vlad::Push</a></li>
+		
+	</ul>
+
+	<h2 id="methods">Methods</h2>
+	<ul>
+		
+			<li><a href="Vlad/Push.html#method-i-checkout">#checkout &mdash; Vlad::Push</a></li>
+		
+			<li><a href="Vlad/Push.html#method-i-compress">#compress &mdash; Vlad::Push</a></li>
+		
+			<li><a href="Vlad/Push.html#method-i-export">#export &mdash; Vlad::Push</a></li>
+		
+			<li><a href="Vlad/Push.html#method-i-push_cleanup">#push_cleanup &mdash; Vlad::Push</a></li>
+		
+			<li><a href="Vlad/Push.html#method-i-push_extract">#push_extract &mdash; Vlad::Push</a></li>
+		
+			<li><a href="Vlad/Push.html#method-i-revision">#revision &mdash; Vlad::Push</a></li>
+		
+	</ul>
+
+	<div id="validator-badges">
+		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+			Rdoc Generator</a> 1.1.6</small>.</p>
+	</div>
+</body>
 </html>
