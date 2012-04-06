@@ -1,4 +1,4 @@
-= vlad-push
+= vlad-push {<img src="https://secure.travis-ci.org/jmervine/vlad-push.png?branch=master" alt="Build Status" />}[http://travis-ci.org/jmervine/vlad-push]
 
 * http://github.com/jmervine/vlad-push
 
