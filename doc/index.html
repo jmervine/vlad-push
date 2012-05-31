@@ -1,208 +1,90 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<html>
 <head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-	<title>vlad-push-1.1.1 Documentation</title>
+<title>RDoc Documentation</title>
 
-	<link type="text/css" media="screen" href="rdoc.css" rel="stylesheet" />
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
 
-	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/thickbox-compressed.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/quicksearch.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/darkfish.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
 
-</head>
-<body class="indexpage">
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
 
-	
-	<h1>vlad-push-1.1.1 Documentation</h1>
 
-	
-	<div id="main">
-		
-<ul>
-<li><p>
-<a
-href="http://github.com/jmervine/vlad-push">github.com/jmervine/vlad-push</a>
-</p>
-</li>
-</ul>
-<h2>DESCRIPTION:</h2>
-<p>
-Adds support to <a href="Vlad.html">Vlad</a> for pushing files to a remote
-server without SCM. (Really, pre 1.x didn&#8217;t work as expected.)
-</p>
-<h2>FEATURES/PROBLEMS:</h2>
-<ul>
-<li><p>
-Requires vlad-git gem
-</p>
-</li>
-</ul>
-<h2>SYNOPSIS:</h2>
-<pre>
-  $ rake [env] vlad:push
-  $ rake [env] vlad:update
+<body>
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
 
-         ^-- if using environment tasks in deploy.rb
 
-  or
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
 
-  $ rake [env] vlad:deploy
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
 
-         ^-- if using environment tasks in deploy.rb
-</pre>
-<h3>Rakefile sample</h3>
-<pre>
-  require 'vlad'
-  Vlad.load(:scm =&gt; :push)
-</pre>
-<h3>deploy.rb sample</h3>
-<pre>
-  set :deploy_to, &quot;/web/root&quot;
-  set :repository, &quot;/push/root&quot;
-  set :extract_file, &quot;#{application}-#{release_name}.tgz&quot;
-</pre>
-<h2>REQUIREMENTS:</h2>
-<ul>
-<li><p>
-<a href="http://rubyhitsquad.com/Vlad_the_Deployer.html">Vlad</a>
-</p>
-</li>
-</ul>
-<h2>INSTALL:</h2>
-<pre>
-    $ sudo gem install vlad-push
-</pre>
-<h2>VARIABLES:</h2>
-<table>
-<tr><td valign="top">repository</td><td><p>
-<a href="Vlad.html">Vlad</a> config param, should be set to a directory
-location to use as repo on remote server(s) <tt>:repository =&gt;
-&quot;/tmp/repo&quot;</tt>
-</p>
-</td></tr>
-<tr><td valign="top">extract_file</td><td><p>
-Name of tarball that vlad-push will generate, we suggest changing this
-</p>
-</td></tr>
-<tr><td valign="top">extract_dir</td><td><p>
-Path to a directory that we will create the extract in, defaults to
-&#8220;/tmp&#8220;
-</p>
-</td></tr>
-<tr><td valign="top">domain</td><td><p>
-See remote_task :domain variable
-</p>
-</td></tr>
-<tr><td valign="top">ssh_flags</td><td><p>
-See remote_task :ssh_flags variable
-</p>
-</td></tr>
-<tr><td valign="top">rsync_flags</td><td><p>
-See remote_task :rsync_flags variable
-</p>
-</td></tr>
-</table>
-<h2>ACKKNOWLEDGEMENTS</h2>
-<ul>
-<li><dl>
-<dt><a href="http://rubyhitsquad.com/">rubyhitsquad.com/</a></dt><dd><p>
-for creating <a href="Vlad.html">Vlad</a>.
-</p>
-</dd>
-</dl>
-</li>
-<li><p>
-jbarnette for <a href="https://github.com/jbarnette/vlad-git">vlad-git</a>
-which was used as a template for 1.0.0.
-</p>
-</li>
-<li><p>
-<a href="https://github.com/retr0h">retr0h</a> who turned me on to <a
-href="Vlad.html">Vlad</a>.
-</p>
-</li>
-</ul>
-<h2>LICENSE:</h2>
-<p>
-(The MIT License)
-</p>
-<p>
-Copyright &#169; 2011 Joshua Mervine
-</p>
-<p>
-Permission is hereby granted, free of charge, to any person obtaining a
-copy of this software and associated documentation files (the
-&#8216;Software&#8217;), to deal in the Software without restriction,
-including without limitation the rights to use, copy, modify, merge,
-publish, distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to the
-following conditions:
-</p>
-<p>
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-</p>
-<p>
-THE SOFTWARE IS PROVIDED &#8216;AS IS&#8217;, WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-USE OR OTHER DEALINGS IN THE SOFTWARE.
-</p>
 
-	</div>
-	
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
 
-	
-	
-	<h2>Files</h2>
-	<ul>
-		
-			<li class="file"><a href="Manifest_txt.html">Manifest.txt</a></li>
-		
-			<li class="file"><a href="README_txt.html">README.txt</a></li>
-		
-	</ul>
-	
+  <ul>
+  
+    <li class="file"><a href="./Gemfile.html">Gemfile</a>
+  
+    <li class="file"><a href="./History_txt.html">History</a>
+  
+    <li class="file"><a href="./Manifest_txt.html">Manifest</a>
+  
+    <li class="file"><a href="./README_txt.html">README</a>
+  
+    <li class="file"><a href="./Rakefile.html">Rakefile</a>
+  
+  </ul>
+</nav>
 
-	<h2 id="classes">Classes/Modules</h2>
-	<ul>
-		
-		<li class="module"><a href="Vlad.html">Vlad</a></li>
-		
-		<li class="class"><a href="Vlad/Push.html">Vlad::Push</a></li>
-		
-	</ul>
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
 
-	<h2 id="methods">Methods</h2>
-	<ul>
-		
-			<li><a href="Vlad/Push.html#method-i-checkout">#checkout &mdash; Vlad::Push</a></li>
-		
-			<li><a href="Vlad/Push.html#method-i-compress">#compress &mdash; Vlad::Push</a></li>
-		
-			<li><a href="Vlad/Push.html#method-i-export">#export &mdash; Vlad::Push</a></li>
-		
-			<li><a href="Vlad/Push.html#method-i-push_cleanup">#push_cleanup &mdash; Vlad::Push</a></li>
-		
-			<li><a href="Vlad/Push.html#method-i-push_extract">#push_extract &mdash; Vlad::Push</a></li>
-		
-			<li><a href="Vlad/Push.html#method-i-revision">#revision &mdash; Vlad::Push</a></li>
-		
-	</ul>
+  <ul class="link-list">
+  
+    <li><a href="./Vlad.html">Vlad</a>
+  
+    <li><a href="./Vlad/Push.html">Vlad::Push</a>
+  
+    <li><a href="./Object.html">Object</a>
+  
+  </ul>
+</nav>
 
-	<div id="validator-badges">
-		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
-		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
-			Rdoc Generator</a> 1.1.6</small>.</p>
-	</div>
-</body>
-</html>
+  </div>
+</nav>
+
+<p>This is the API documentation for RDoc Documentation.
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 3.12.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

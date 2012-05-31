@@ -4,7 +4,7 @@
 <head>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-<title>Manifest - RDoc Documentation</title>
+<title>Rakefile - RDoc Documentation</title>
 
 <link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
 
@@ -81,9 +81,30 @@
 
 <div id="documentation" class="description">
   
-<p>.autotest lib/vlad/push.rb <a href="Manifest_txt.html">Manifest.txt</a> <a
-href="Rakefile.html">Rakefile</a> <a href="README_txt.html">README.txt</a>
-test/test_vlad_push.rb</p>
+<p># -*- ruby -*-</p>
+
+<p>require ‘rubygems’ require ‘hoe’</p>
+
+<p>Hoe.spec ‘vlad-push’ do</p>
+
+<pre>developer('Joshua P. Mervine', 'joshua@mervine.net')
+extra_deps &lt;&lt; ['vlad', '~&gt; 2.0']</pre>
+
+<p>end</p>
+
+<p>begin</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">'vlad'</span>
+<span class="ruby-constant">Vlad</span>.<span class="ruby-identifier">load</span> :<span class="ruby-identifier">scm</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">push</span>
+</pre>
+
+<p>rescue LoadError</p>
+
+<pre># do nothing</pre>
+
+<p>end</p>
+
+<p># vim: syntax=ruby</p>
 
 </div>
 
