@@ -1,10 +1,11 @@
 require 'vlad'
+include Rake::DSL
 
 # @author Joshua P. Mervine <joshua@mervine.net>
 #
 # Please see {file:lib/vlad/push.rb Vlad::Push Source} for Rake task documentation.
 class Vlad::Push
-  VERSION = "1.1.1"
+  VERSION = "1.1.2"
 
   # @attribute[rw]
   # init Vlad::Push

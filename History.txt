@@ -1,3 +1,11 @@
+=== 1.1.2 / 2012-05-31 / joshua@mervine.net
+* bump to 1.1.2
+* including Rake::DSL so as to avoid warnings
+
+=== 1.1.1 / joshua@mervine.net
+* bump version
+* creating gem and releasing 1.1.0
+
 === 1.1.0 / 2012-01-18 / nhruby@gmail.com
 * bump to 1.1.0 (older rubygems from rhel5 don't like beta lettering, so real numbers it is)
 * use vars for extract file and dirname, intrduces new suggested setting :extract_file to deploy.rb

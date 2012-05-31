@@ -8,4 +8,11 @@ Hoe.spec 'vlad-push' do
   extra_deps << ['vlad', '~> 2.0']
 end
 
+begin 
+  require 'vlad'
+  Vlad.load :scm => :push
+rescue LoadError
+  # do nothing
+end
+
 # vim: syntax=ruby
