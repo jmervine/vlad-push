@@ -3,3 +3,4 @@ pkg
 .yardoc
 .bundle
 vendor
+/doc/
