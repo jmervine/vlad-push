@@ -1,4 +1,4 @@
-# vlad-push [![Build Status](https://travis-ci.org/jmervine/vlad-push.png?brach=master)](http://travis-ci.org/jmervine/vlad-push)]
+# vlad-push [![Build Status](https://travis-ci.org/jmervine/vlad-push.png?brach=master)](http://travis-ci.org/jmervine/vlad-push)
 
 * http://github.com/jmervine/vlad-push
 * http://www.rubyops.net/2012/05/31/vlad-push
@@ -14,17 +14,18 @@ Adds support to Vlad for pushing files to a remote server without SCM.
 
 ## SYNOPSIS:
 
-  $ rake [env] vlad:push
-  $ rake [env] vlad:update
-
+```sh
+$ rake [env] vlad:push
+$ rake [env] vlad:update
          ^-- if using environment tasks in deploy.rb
+```
 
-  or
+Or
 
-  $ rake [env] vlad:deploy
-
+```sh
+$ rake [env] vlad:deploy
          ^-- if using environment tasks in deploy.rb
-
+```
 ### Rakefile sample
 
 ```ruby
@@ -43,7 +44,7 @@ set :extract_file, "#{application}-#{release_name}.tgz"
 
 ## REQUIREMENTS:
 
-* !(Vlad)[http://rubyhitsquad.com/Vlad_the_Deployer.html Vlad]
+* ![Vlad](http://rubyhitsquad.com/Vlad_the_Deployer.html Vlad)
 
 ## INSTALL:
 
@@ -53,20 +54,24 @@ set :extract_file, "#{application}-#{release_name}.tgz"
 
 ## VARIABLES:
 
-repository::	        Vlad config param, should be set to a directory location
-			to use as repo on remote server(s)
-                        :repository => "/tmp/repo"
-extract_file::          Name of tarball that vlad-push will generate, we suggest changing this
-extract_dir::           Path to a directory that we will create the extract in, defaults to "/tmp"
-domain::	        See remote_task :domain variable
-ssh_flags::             See remote_task :ssh_flags variable
-rsync_flags::           See remote_task :rsync_flags variable
+* `repository::`
+** Vlad config param, should be set to a directory location to use as repo on remote server(s) :repository => "/tmp/repo"
+* `extract_file::`
+** Name of tarball that vlad-push will generate, we suggest changing this
+* `extract_dir::`
+** Path to a directory that we will create the extract in, defaults to "/tmp"
+* `domain::`
+** See remote_task :domain variable
+* `ssh_flags::`
+** See remote_task :ssh_flags variable
+* `rsync_flags::`
+** See remote_task :rsync_flags variable
 
-## ACKKNOWLEDGEMENTS
+## ACKKNOWLEDGEMENTS:
 
-* [http://rubyhitsquad.com/] for creating Vlad.
-* jbarnette for vlad-git[https://github.com/jbarnette/vlad-git] which was used as a template for 1.0.0.
-* retr0h[https://github.com/retr0h] who turned me on to Vlad.
+* http://rubyhitsquad.com/ for creating Vlad.
+* jbarnette for (https://github.com/jbarnette/vlad-git "vlad-git") which was used as a template for 1.0.0.
+* (https://github.com/retr0h "retr0h") who turned me on to Vlad.
 
 
 ## LICENSE:
