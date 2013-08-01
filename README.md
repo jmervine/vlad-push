@@ -67,7 +67,7 @@ set :extract_file, "#{application}-#{release_name}.tgz"
 * `rsync_flags::`
  * See remote_task :rsync_flags variable
 
-## ACKKNOWLEDGEMENTS:
+## ACKNOWLEDGEMENTS:
 
 * http://rubyhitsquad.com/ for creating Vlad.
 * jbarnette for [vlad-git](https://github.com/jbarnette/vlad-git "vlad-git") which was used as a template for 1.0.0.
