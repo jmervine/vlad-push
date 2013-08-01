@@ -44,7 +44,7 @@ set :extract_file, "#{application}-#{release_name}.tgz"
 
 ## REQUIREMENTS:
 
-* ![Vlad](http://rubyhitsquad.com/Vlad_the_Deployer.html "Vlad")
+* [Vlad](http://rubyhitsquad.com/Vlad_the_Deployer.html "Vlad")
 
 ## INSTALL:
 
