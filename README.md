@@ -1,18 +1,18 @@
-= vlad-push {<img src="https://secure.travis-ci.org/jmervine/vlad-push.png?branch=master" alt="Build Status" />}[http://travis-ci.org/jmervine/vlad-push]
+# vlad-push [![Build Status](https://travis-ci.org/jmervine/vlad-push.png?brach=master)](http://travis-ci.org/jmervine/vlad-push)]
 
 * http://github.com/jmervine/vlad-push
 * http://www.rubyops.net/2012/05/31/vlad-push
 
-== DESCRIPTION:
+## DESCRIPTION:
 
 Adds support to Vlad for pushing files to a remote server without SCM.
 
 
-== FEATURES/PROBLEMS:
+## FEATURES/PROBLEMS:
 
 * Requires vlad-git gem
 
-== SYNOPSIS:
+## SYNOPSIS:
 
   $ rake [env] vlad:push
   $ rake [env] vlad:update
@@ -25,27 +25,33 @@ Adds support to Vlad for pushing files to a remote server without SCM.
 
          ^-- if using environment tasks in deploy.rb
 
-=== Rakefile sample
+### Rakefile sample
 
-  require 'vlad'
-  Vlad.load(:scm => :push)
+```ruby
+require 'vlad'
+Vlad.load(:scm => :push)
+```
 
-=== deploy.rb sample
+### deploy.rb sample
 
-  set :deploy_to, "/web/root"
-  set :repository, "/push/root"
-  set :extract_dir, "/tmp/repo"
-  set :extract_file, "#{application}-#{release_name}.tgz"
+```ruby
+set :deploy_to, "/web/root"
+set :repository, "/push/root"
+set :extract_dir, "/tmp/repo"
+set :extract_file, "#{application}-#{release_name}.tgz"
+```
 
-== REQUIREMENTS:
+## REQUIREMENTS:
 
-* Vlad[http://rubyhitsquad.com/Vlad_the_Deployer.html]
+* !(Vlad)[http://rubyhitsquad.com/Vlad_the_Deployer.html Vlad]
 
-== INSTALL:
+## INSTALL:
 
+```sh
     $ sudo gem install vlad-push
+```
 
-== VARIABLES:
+## VARIABLES:
 
 repository::	        Vlad config param, should be set to a directory location
 			to use as repo on remote server(s)
@@ -56,14 +62,14 @@ domain::	        See remote_task :domain variable
 ssh_flags::             See remote_task :ssh_flags variable
 rsync_flags::           See remote_task :rsync_flags variable
 
-== ACKKNOWLEDGEMENTS
+## ACKKNOWLEDGEMENTS
 
 * [http://rubyhitsquad.com/] for creating Vlad.
 * jbarnette for vlad-git[https://github.com/jbarnette/vlad-git] which was used as a template for 1.0.0.
 * retr0h[https://github.com/retr0h] who turned me on to Vlad.
 
 
-== LICENSE:
+## LICENSE:
 
 (The MIT License)
 
